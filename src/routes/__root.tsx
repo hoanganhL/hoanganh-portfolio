@@ -77,14 +77,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
+      { title: "hoanganh" },
+      { name: "description", content: "Hello Vietnam! is a Vietnamese language website with a tabbed navigation and UET branding." },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { property: "og:title", content: "hoanganh" },
+      { property: "og:description", content: "Hello Vietnam! is a Vietnamese language website with a tabbed navigation and UET branding." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "hoanganh" },
+      { name: "twitter:description", content: "Hello Vietnam! is a Vietnamese language website with a tabbed navigation and UET branding." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/95b97bfc-5646-4ebe-a1dc-2568e107b403/id-preview-b4f80d29--f86bf022-25c0-4248-a696-05e2953f9e33.lovable.app-1780338631376.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/95b97bfc-5646-4ebe-a1dc-2568e107b403/id-preview-b4f80d29--f86bf022-25c0-4248-a696-05e2953f9e33.lovable.app-1780338631376.png" },
     ],
     links: [
       {
