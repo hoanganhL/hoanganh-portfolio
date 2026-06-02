@@ -2,6 +2,25 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import uetLogo from "@/assets/uet-logo.webp";
 import avatar from "@/assets/avatar.jpg";
+import bai1s1 from "@/assets/bai1/s1.png";
+import bai1s2 from "@/assets/bai1/s2.png";
+import bai1s3 from "@/assets/bai1/s3.png";
+import bai1s4 from "@/assets/bai1/s4.png";
+import bai1s5 from "@/assets/bai1/s5.png";
+import bai1s6a from "@/assets/bai1/s6a.png";
+import bai1s6b from "@/assets/bai1/s6b.png";
+import bai1s7 from "@/assets/bai1/s7.png";
+import bai1s8a from "@/assets/bai1/s8a.png";
+import bai1s8b from "@/assets/bai1/s8b.png";
+import bai1s8c from "@/assets/bai1/s8c.png";
+import bai1s9a from "@/assets/bai1/s9a.png";
+import bai1s9b from "@/assets/bai1/s9b.png";
+import bai1s9c from "@/assets/bai1/s9c.png";
+import bai1s10 from "@/assets/bai1/s10.png";
+import bai1s11a from "@/assets/bai1/s11a.png";
+import bai1s11b from "@/assets/bai1/s11b.png";
+import bai1s11c from "@/assets/bai1/s11c.png";
+import bai1s12 from "@/assets/bai1/s12.png";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 
 export const Route = createFileRoute("/")({
