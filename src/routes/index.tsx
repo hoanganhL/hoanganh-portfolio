@@ -516,25 +516,6 @@ function Bai2Page() {
         </h2>
       </header>
 
-      <div className="space-y-2">
-        <h3 className="text-lg font-semibold">Chủ đề</h3>
-        <p>Ứng dụng của Trí tuệ Nhân tạo (AI) trong Giáo dục Đại học</p>
-      </div>
-
-      <div className="space-y-2">
-        <h3 className="text-lg font-semibold">Sinh viên thực hiện</h3>
-        <dl className="space-y-1 text-sm">
-          <div className="flex gap-4">
-            <dt className="font-medium text-muted-foreground">Họ và tên:</dt>
-            <dd>Nguyễn Hoàng Anh</dd>
-          </div>
-          <div className="flex gap-4">
-            <dt className="font-medium text-muted-foreground">Mã số sinh viên:</dt>
-            <dd>25020459</dd>
-          </div>
-        </dl>
-      </div>
-
       <section className="prose-section">
         <h3>Đánh giá độ tin cậy của các nguồn thông tin</h3>
         <p className="text-sm text-muted-foreground mb-4">Các nguồn được đánh giá theo 5 tiêu chí CRAAP: Currency (Cập nhật), Relevance (Liên quan), Authority (Uy tín), Accuracy (Chính xác), Purpose (Mục đích)</p>
