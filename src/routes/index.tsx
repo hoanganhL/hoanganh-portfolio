@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import uetLogo from "@/assets/uet-logo.png";
+import uetLogo from "@/assets/uet-logo.webp";
 import avatar from "@/assets/avatar.jpg";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 
