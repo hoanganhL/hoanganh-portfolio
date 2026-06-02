@@ -255,8 +255,7 @@ function Portfolio() {
             Hành trình học tập số của sinh viên UET
           </h2>
           <p className="mt-3 max-w-2xl text-sm sm:text-base opacity-90">
-            Tổng hợp 6 bài tập thành phần và phản chiếu cá nhân trong suốt môn học,
-            được trình bày dưới dạng portfolio điều hướng bằng tab.
+            {"\n"}
           </p>
         </div>
       </section>
@@ -320,12 +319,12 @@ function IntroPage() {
             Thông tin sinh viên
           </h3>
           <dl className="mt-3 space-y-2 text-sm">
-            <Row k="Họ và tên" v="Nguyễn Văn A" />
-            <Row k="Mã sinh viên" v="24020000" />
+            <Row k="Họ và tên" v="Nguyễn Hoàng Anh" />
+            <Row k="Mã sinh viên" v="25020459" />
             <Row k="Trường" v="ĐH Công nghệ — ĐHQGHN" />
-            <Row k="Khóa" v="QH-2024 (K69)" />
-            <Row k="Ngành" v="Kỹ thuật máy tính — CN2" />
-            <Row k="Email" v="vana_24@vnu.edu.vn" />
+            <Row k="Khóa" v="QH-2025 (K70)" />
+            <Row k="Ngành" v="Kỹ thuật máy tính" />
+            <Row k="Email" v="25020459@vnu.edu.vn" />
           </dl>
         </div>
       </div>
@@ -336,34 +335,28 @@ function IntroPage() {
             Trang Giới thiệu
           </p>
           <h2 className="mt-1 text-3xl font-bold text-[var(--brand-deep)]">
-            Xin chào, mình là Nguyễn Văn A
+            Xin chào, mình là Nguyễn Hoàng Anh
           </h2>
         </header>
 
         <section className="prose-section">
           <h3>Đôi nét về bản thân</h3>
           <p>
-            Mình là sinh viên năm nhất ngành <strong>Kỹ thuật máy tính, chương trình
-            chất lượng cao CN2</strong> tại Trường Đại học Công nghệ, ĐHQGHN.
-            Mình yêu thích phần cứng nhúng, hệ thống nhân tạo và đặc biệt hứng thú
-            với cách phần mềm tương tác với phần cứng để tạo ra những thiết bị thông
-            minh phục vụ đời sống.
+            Mình là sinh viên năm nhất ngành Kỹ thuật máy tính tại Trường Đại học Công nghệ, ĐHQGHN.{" "}
           </p>
           <p>
-            Ngoài giờ học, mình dành thời gian cho các CLB học thuật của UET, tự học
-            qua các khóa MOOC trên Coursera, edX và đọc tài liệu mã nguồn mở. Mình
-            tin rằng việc xây dựng thói quen học tập số có hệ thống là nền tảng để
-            đi xa hơn trong nghề kỹ sư.
+            Mình yêu thích phần cứng nhúng, hệ thống nhân tạo và đặc biệt hứng thú với cách phần mềm tương tác với phần cứng để tạo ra những thiết bị thông minh phục vụ đời sống.
           </p>
         </section>
 
         <section className="prose-section">
-          <h3>Mục tiêu học tập</h3>
+          <h3>Kỹ năng cá nhân</h3>
           <ul>
-            <li>Vững nền tảng Toán rời rạc, Cấu trúc máy tính và Lập trình C/C++ trong năm nhất.</li>
-            <li>Thành thạo Linux, Git và quy trình làm việc nhóm trên môi trường số.</li>
-            <li>Có ít nhất 2 dự án cá nhân về hệ thống nhúng hoặc AI ứng dụng vào cuối năm 2.</li>
-            <li>Tham gia một cuộc thi học thuật cấp trường hoặc cấp quốc gia trước khi tốt nghiệp.</li>
+            <li>Vững nền tảng Toán và Lập trình trong năm nhất.</li>
+            <li>Thành thạo ngôn ngữ C và Python. </li>
+            <li>Có khả năng sử dụng tiếng Anh trong cả cuộc sống và trong chuyên ngành.</li>
+            <li>Kinh nghiệm sử dụng các công cụ và làm việc trên môi trường số</li>
+            <li>{"\n"}</li>
           </ul>
         </section>
 
