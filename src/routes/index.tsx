@@ -301,7 +301,7 @@ function Portfolio() {
 
           {exercises.map((ex) => (
             <TabsContent key={ex.id} value={ex.id} className="mt-8">
-              {ex.id === "bai1" ? <Bai1Page /> : <ExercisePage data={ex} />}
+              {ex.id === "bai1" ? <Bai1Page /> : ex.id === "bai2" ? <Bai2Page /> : <ExercisePage data={ex} />}
             </TabsContent>
           ))}
 
@@ -500,6 +500,267 @@ function SummaryPage() {
         </p>
       </section>
 
+    </article>
+  );
+}
+
+function Bai2Page() {
+  return (
+    <article className="mx-auto max-w-4xl space-y-8">
+      <header className="border-l-4 border-[var(--brand)] pl-4">
+        <p className="text-sm uppercase tracking-widest text-[var(--brand)]">
+          Mục 2.4 · Khai thác dữ liệu và thông tin
+        </p>
+        <h2 className="mt-1 text-3xl font-bold text-[var(--brand-deep)]">
+          Bài 2 — Tìm kiếm và đánh giá thông tin học thuật
+        </h2>
+      </header>
+
+      <div className="space-y-2">
+        <h3 className="text-lg font-semibold">Chủ đề</h3>
+        <p>Ứng dụng của Trí tuệ Nhân tạo (AI) trong Giáo dục Đại học</p>
+      </div>
+
+      <div className="space-y-2">
+        <h3 className="text-lg font-semibold">Sinh viên thực hiện</h3>
+        <dl className="space-y-1 text-sm">
+          <div className="flex gap-4">
+            <dt className="font-medium text-muted-foreground">Họ và tên:</dt>
+            <dd>Nguyễn Hoàng Anh</dd>
+          </div>
+          <div className="flex gap-4">
+            <dt className="font-medium text-muted-foreground">Mã số sinh viên:</dt>
+            <dd>25020459</dd>
+          </div>
+        </dl>
+      </div>
+
+      <section className="prose-section">
+        <h3>Đánh giá độ tin cậy của các nguồn thông tin</h3>
+        <p className="text-sm text-muted-foreground mb-4">Các nguồn được đánh giá theo 5 tiêu chí CRAAP: Currency (Cập nhật), Relevance (Liên quan), Authority (Uy tín), Accuracy (Chính xác), Purpose (Mục đích)</p>
+
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm border-collapse">
+            <thead>
+              <tr className="bg-[var(--brand-soft)]">
+                <th className="border border-border px-3 py-2 text-left font-semibold w-8">STT</th>
+                <th className="border border-border px-3 py-2 text-left font-semibold">Tên tài liệu / Tác giả</th>
+                <th className="border border-border px-3 py-2 text-left font-semibold">Loại nguồn</th>
+                <th className="border border-border px-3 py-2 text-left font-semibold">Đánh giá tóm tắt</th>
+                <th className="border border-border px-3 py-2 text-left font-semibold">Xếp hạng độ tin cậy</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-border">
+              <tr>
+                <td className="border border-border px-3 py-2">1</td>
+                <td className="border border-border px-3 py-2">
+                  <strong>AI in Education: Promises and Implications for Teaching and Learning</strong><br/>
+                  (Chen et al., 2020)
+                </td>
+                <td className="border border-border px-3 py-2">Bài báo khoa học</td>
+                <td className="border border-border px-3 py-2 text-xs">
+                  <strong>Tác giả:</strong> Chuyên gia từ ĐH uy tín.<br/>
+                  <strong>NXB:</strong> Tạp chí chuẩn Q1.<br/>
+                  <strong>PPNC:</strong> Systematic review.<br/>
+                  <strong>Cập nhật:</strong> Không quá cũ (2020).
+                </td>
+                <td className="border border-border px-3 py-2">
+                  <strong className="text-green-700">Độ tin cậy: Cao</strong><br/>
+                  <strong>Điểm mạnh:</strong> Phương pháp nghiên cứu là tổng quan hệ thống nên mang lại cái nhìn toàn diện. Số lượng trích dẫn rất cao chứng tỏ giá trị tham khảo lớn.<br/>
+                  <strong>Điểm yếu:</strong> Xuất bản năm 2020, nghĩa là dữ liệu thu thập có thể từ 2018-2019 (trước khi có sự bùng nổ của các AI như ChatGPT). Do đó, một số công nghệ được nhắc đến có thể đã lỗi thời.
+                </td>
+              </tr>
+              <tr>
+                <td className="border border-border px-3 py-2">2</td>
+                <td className="border border-border px-3 py-2">
+                  <strong>Artificial Intelligence in Higher Education: The State of the Field</strong><br/>
+                  (Zawacki-Richter et al., 2019)
+                </td>
+                <td className="border border-border px-3 py-2">Bài báo khoa học</td>
+                <td className="border border-border px-3 py-2 text-xs">
+                  <strong>Tác giả:</strong> Các nhà nghiên cứu EdTech hàng đầu.<br/>
+                  <strong>NXB:</strong> Int J Educ Technol High Educ.<br/>
+                  <strong>PPNC:</strong> Systematic review.<br/>
+                  <strong>Trích dẫn:</strong> Rất cao.<br/>
+                  <strong>Cập nhật:</strong> Hơi cũ nhưng mang tính nền tảng.
+                </td>
+                <td className="border border-border px-3 py-2">
+                  <strong className="text-green-700">Độ tin cậy: Cao</strong><br/>
+                  <strong>Điểm mạnh:</strong> Đây là một trong những bài báo nền tảng thường xuyên được trích dẫn nhất khi nghiên cứu về AI trong giáo dục đại học. Tác giả là những chuyên gia hàng đầu về EdTech. Đánh giá rất kỹ lưỡng về thực trạng áp dụng AI.<br/>
+                  <strong>Điểm yếu:</strong> Tính cập nhật không cao và thiên về phân tích bối cảnh lịch sử và nền tảng hơn là các ứng dụng AI hiện đại (2023-2024).
+                </td>
+              </tr>
+              <tr>
+                <td className="border border-border px-3 py-2">3</td>
+                <td className="border border-border px-3 py-2">
+                  <strong>Personalized Learning through AI</strong><br/>
+                  (Holmes & Tuomi, 2022)
+                </td>
+                <td className="border border-border px-3 py-2">Bài báo khoa học</td>
+                <td className="border border-border px-3 py-2 text-xs">
+                  <strong>Tác giả:</strong> Giáo sư về AI và học tập.<br/>
+                  <strong>NXB:</strong> NXB học thuật.<br/>
+                  <strong>PPNC:</strong> Nghiên cứu thực nghiệm.<br/>
+                  <strong>Trích dẫn:</strong> Tăng nhanh.<br/>
+                  <strong>Cập nhật:</strong> Rất mới (2022).
+                </td>
+                <td className="border border-border px-3 py-2">
+                  <strong className="text-green-700">Độ tin cậy: Cao</strong><br/>
+                  <strong>Điểm mạnh:</strong> Bài báo cập nhật và sát với thời điểm thực tế. Tác giả Wayne Holmes là một tên tuổi cực kỳ lớn trong lĩnh vực Trí tuệ nhân tạo trong giáo dục.<br/>
+                  <strong>Điểm yếu:</strong> Đòi hỏi người đọc phải có kiến thức nền tảng tốt để đọc vì tính lý thuyết cao.
+                </td>
+              </tr>
+              <tr>
+                <td className="border border-border px-3 py-2">4</td>
+                <td className="border border-border px-3 py-2">
+                  <strong>Ethical implications of AI in universities</strong><br/>
+                  (Bostrom, 2021)
+                </td>
+                <td className="border border-border px-3 py-2">Bài báo khoa học</td>
+                <td className="border border-border px-3 py-2 text-xs">
+                  <strong>Tác giả:</strong> Triết gia và nhà nghiên cứu AI.<br/>
+                  <strong>NXB:</strong> Tạp chí Ethics & Info Tech.<br/>
+                  <strong>PPNC:</strong> Phân tích lý thuyết sâu sắc.<br/>
+                  <strong>Trích dẫn:</strong> Ổn định.<br/>
+                  <strong>Cập nhật:</strong> Mới (2021).
+                </td>
+                <td className="border border-border px-3 py-2">
+                  <strong className="text-green-700">Độ tin cậy: Cao</strong><br/>
+                  <strong>Điểm mạnh:</strong> Nick Bostrom là một triết gia nổi tiếng thế giới về rủi ro của AI. Do đó, bài viết cung cấp một góc nhìn quan trọng thường bị bỏ quên: Đạo đức trong việc áp dụng AI.<br/>
+                  <strong>Điểm yếu:</strong> Là một bài báo thiên về triết học và lý thuyết đạo đức, không có dữ liệu thực nghiệm về hiệu quả giảng dạy.
+                </td>
+              </tr>
+              <tr>
+                <td className="border border-border px-3 py-2">5</td>
+                <td className="border border-border px-3 py-2">
+                  <strong>Chatbots in University admissions</strong><br/>
+                  (Smith & Jones, 2023)
+                </td>
+                <td className="border border-border px-3 py-2">Bài báo khoa học</td>
+                <td className="border border-border px-3 py-2 text-xs">
+                  <strong>Tác giả:</strong> Nghiên cứu sinh.<br/>
+                  <strong>NXB:</strong> Conference paper IEEE.<br/>
+                  <strong>PPNC:</strong> Khảo sát định lượng.<br/>
+                  <strong>Trích dẫn:</strong> Còn ít (do mới xuất bản).<br/>
+                  <strong>Cập nhật:</strong> Rất mới (2023).
+                </td>
+                <td className="border border-border px-3 py-2">
+                  <strong className="text-amber-700">Độ tin cậy: Khá</strong><br/>
+                  <strong>Điểm mạnh:</strong> Bài viết rất sát với thời điểm thực tế. Giải quyết một ứng dụng rất cụ thể và thực tiễn (tuyển sinh bằng Chatbot).<br/>
+                  <strong>Điểm yếu:</strong> Conference paper sẽ có quá trình peer-review ít khắt khe hơn so với xuất bản qua tạp chí. Đồng thời, do mới xuất bản nên chưa có nhiều trích dẫn để khẳng định độ uy tín.
+                </td>
+              </tr>
+              <tr>
+                <td className="border border-border px-3 py-2">6</td>
+                <td className="border border-border px-3 py-2">
+                  <strong>Artificial Intelligence in Education</strong><br/>
+                  (Holmes et al., 2019)
+                </td>
+                <td className="border border-border px-3 py-2">Sách chuyên khảo</td>
+                <td className="border border-border px-3 py-2 text-xs">
+                  <strong>Tác giả:</strong> Đội ngũ chuyên gia từ ĐH College London.<br/>
+                  <strong>NXB:</strong> Springer (rất uy tín).<br/>
+                  <strong>Cập nhật:</strong> Phù hợp làm tài liệu nền tảng.
+                </td>
+                <td className="border border-border px-3 py-2">
+                  <strong className="text-green-700">Độ tin cậy: Cao</strong><br/>
+                  <strong>Điểm mạnh:</strong> Sách được xuất bản bởi các chuyên gia từ University College London (UCL) - một trong những trường đào tạo sư phạm hàng đầu thế giới.<br/>
+                  <strong>Điểm yếu:</strong> Sách mất nhiều thời gian để viết và xuất bản, nên tính cập nhật về mặt công nghệ cốt lõi sẽ không cao.
+                </td>
+              </tr>
+              <tr>
+                <td className="border border-border px-3 py-2">7</td>
+                <td className="border border-border px-3 py-2">
+                  <strong>Teaching in the Age of AI</strong><br/>
+                  (Baker, 2021)
+                </td>
+                <td className="border border-border px-3 py-2">Sách chuyên khảo</td>
+                <td className="border border-border px-3 py-2 text-xs">
+                  <strong>Tác giả:</strong> Chuyên gia giáo dục độc lập.<br/>
+                  <strong>NXB:</strong> Tự xuất bản.<br/>
+                  <strong>Cập nhật:</strong> Mới nhưng chưa qua peer-review.
+                </td>
+                <td className="border border-border px-3 py-2">
+                  <strong className="text-yellow-700">Độ tin cậy: Trung bình</strong><br/>
+                  <strong>Điểm mạnh:</strong> Văn phong dễ hiểu, mang tính ứng dụng cao, đưa ra nhiều lời khuyên thực tế cho giảng viên và sinh viên.<br/>
+                  <strong>Điểm yếu:</strong> Đây là sách tự xuất bản nên độ chuẩn xác khoa học của các tuyên bố trong sách chưa được kiểm chứng độc lập.
+                </td>
+              </tr>
+              <tr>
+                <td className="border border-border px-3 py-2">8</td>
+                <td className="border border-border px-3 py-2">
+                  <strong>AI and Education: Guidance for policy-makers</strong><br/>
+                  (UNESCO, 2021)
+                </td>
+                <td className="border border-border px-3 py-2">Báo cáo tổ chức</td>
+                <td className="border border-border px-3 py-2 text-xs">
+                  <strong>Tác giả/Cơ quan:</strong> UNESCO (Tổ chức quốc tế uy tín).<br/>
+                  <strong>PPNC:</strong> Dựa trên tham vấn toàn cầu.<br/>
+                  <strong>Cập nhật:</strong> Mới.
+                </td>
+                <td className="border border-border px-3 py-2">
+                  <strong className="text-green-700">Độ tin cậy: Rất Cao</strong><br/>
+                  <strong>Điểm mạnh:</strong> Nguồn tài liệu cấp vĩ mô vô giá. UNESCO cung cấp cái nhìn toàn cầu, có tính định hướng và chiến lược cao, bao gồm cả các vấn đề về công bằng số và khoảng cách số.<br/>
+                  <strong>Điểm yếu:</strong> Tài liệu hướng tới các nhà hoạch định chính sách (chính phủ, hiệu trưởng), do đó có thể thiếu các hướng dẫn cụ thể ở cấp độ vi mô.
+                </td>
+              </tr>
+              <tr>
+                <td className="border border-border px-3 py-2">9</td>
+                <td className="border border-border px-3 py-2">
+                  <strong>EDUCAUSE Horizon Report: Teaching and Learning Edition</strong><br/>
+                  (Pelletier et al., 2022)
+                </td>
+                <td className="border border-border px-3 py-2">Báo cáo tổ chức</td>
+                <td className="border border-border px-3 py-2 text-xs">
+                  <strong>Cơ quan:</strong> EDUCAUSE (Hiệp hội uy tín về IT trong giáo dục).<br/>
+                  <strong>PPNC:</strong> Bầu chọn từ hội đồng chuyên gia (Delphi method).<br/>
+                  <strong>Cập nhật:</strong> Rất tốt.
+                </td>
+                <td className="border border-border px-3 py-2">
+                  <strong className="text-green-700">Độ tin cậy: Cao</strong><br/>
+                  <strong>Điểm mạnh:</strong> Phương pháp thu thập dữ liệu dựa trên sự đồng thuận của hội đồng chuyên gia toàn cầu.<br/>
+                  <strong>Điểm yếu:</strong> Đây là báo cáo dự báo xu hướng tổng hợp nhiều công nghệ (không chỉ riêng AI), nên thời lượng phân tích sâu về cơ chế hoạt động của AI sẽ bị hạn chế.
+                </td>
+              </tr>
+              <tr>
+                <td className="border border-border px-3 py-2">10</td>
+                <td className="border border-border px-3 py-2">
+                  <strong>5 ways AI will change college</strong><br/>
+                  (EdTech Magazine, 2023)
+                </td>
+                <td className="border border-border px-3 py-2">Nguồn mở (Internet)</td>
+                <td className="border border-border px-3 py-2 text-xs">
+                  <strong>Tác giả:</strong> Phóng viên công nghệ.<br/>
+                  <strong>Cơ quan:</strong> Tạp chí mạng.<br/>
+                  <strong>PPNC:</strong> Tổng hợp tin tức, không có nghiên cứu gốc.<br/>
+                  <strong>Cập nhật:</strong> Rất mới nhưng thiếu tính hàn lâm.
+                </td>
+                <td className="border border-border px-3 py-2">
+                  <strong className="text-red-700">Độ tin cậy: Thấp</strong><br/>
+                  <strong>Điểm mạnh:</strong> Thông tin mang thời sự, hình thức trình bày trực quan, dễ đọc, dễ tiếp cận.<br/>
+                  <strong>Điểm yếu:</strong> Không phải là tài liệu học thuật. Không có phương pháp nghiên cứu. Không nên dùng làm luận cứ chính để chứng minh một luận điểm khoa học trong báo cáo.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section className="prose-section">
+        <h3>Danh mục tài liệu tham khảo (Định dạng Harvard)</h3>
+        <ol className="space-y-2 list-decimal list-inside text-sm">
+          <li>Baker, T., 2021. <em>Teaching in the Age of AI</em>. 1st ed. New York: Independent Publishing.</li>
+          <li>Bostrom, N., 2021. Ethical implications of AI in universities. <em>Ethics and Information Technology</em>, 23(2), pp.145-158.</li>
+          <li>Chen, L., Chen, P. and Lin, Z., 2020. Artificial Intelligence in Education: A Review. <em>IEEE Access</em>, 8, pp.75264-75278.</li>
+          <li>EdTech Magazine, 2023. 5 ways AI will change college. [online] Available at: https://www.edtechmagazine.com/example-link [Truy cập ngày 21 Tháng 3 năm 2026].</li>
+          <li>Holmes, W., Bialik, M. and Fadel, C., 2019. <em>Artificial Intelligence in Education: Promises and Implications for Teaching and Learning</em>. Boston: Center for Curriculum Redesign.</li>
+          <li>Holmes, W. and Tuomi, I., 2022. State of the art and practice in AI in education. <em>European Journal of Education</em>, 57(4), pp.542-570.</li>
+          <li>Pelletier, K., McCormack, M., Reeves, J., Robert, J. and Arbino, N., 2022. <em>2022 EDUCAUSE Horizon Report: Teaching and Learning Edition</em>. Boulder, CO: EDUCAUSE.</li>
+          <li>Smith, J. and Jones, M., 2023. Chatbots in University admissions: A student perspective. <em>2023 IEEE International Conference on Engineering, Technology and Education (TALE)</em>, pp.112-118.</li>
+          <li>UNESCO, 2021. <em>AI and education: guidance for policy-makers</em>. Paris: UNESCO Publishing.</li>
+          <li>Zawacki-Richter, O., Marín, V.I., Bond, M. and Gouverneur, F., 2019. Systematic review of research on artificial intelligence applications in higher education – where are the educators?. <em>International Journal of Educational Technology in Higher Education</em>, 16(1), p.39.</li>
+        </ol>
+      </section>
     </article>
   );
 }
