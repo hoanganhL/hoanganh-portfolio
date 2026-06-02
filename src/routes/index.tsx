@@ -356,7 +356,6 @@ function IntroPage() {
             <li>Thành thạo ngôn ngữ C và Python. </li>
             <li>Có khả năng sử dụng tiếng Anh trong cả cuộc sống và trong chuyên ngành.</li>
             <li>Kinh nghiệm sử dụng các công cụ và làm việc trên môi trường số</li>
-            <li>{"\n"}</li>
           </ul>
         </section>
 
