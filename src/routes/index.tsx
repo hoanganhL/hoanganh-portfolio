@@ -526,3 +526,119 @@ function SummaryPage() {
     </article>
   );
 }
+
+function Figure({ src, alt }: { src: string; alt: string }) {
+  return (
+    <figure className="my-4">
+      <div className="overflow-hidden rounded-lg border border-border bg-card">
+        <img src={src} alt={alt} className="w-full h-auto object-contain" loading="lazy" />
+      </div>
+      <figcaption className="mt-2 text-xs text-muted-foreground italic text-center">{alt}</figcaption>
+    </figure>
+  );
+}
+
+function Bai1Page() {
+  return (
+    <article className="mx-auto max-w-3xl space-y-8">
+      <header className="border-l-4 border-[var(--brand)] pl-4">
+        <p className="text-sm uppercase tracking-widest text-[var(--brand)]">
+          Mục 1.4 · Quản lý tệp và thư mục
+        </p>
+        <h2 className="mt-1 text-3xl font-bold text-[var(--brand-deep)]">
+          Bài 1 — Thao tác cơ bản với tệp tin và thư mục
+        </h2>
+      </header>
+
+      <section className="prose-section">
+        <h3>Thực hiện</h3>
+
+        <h4>1. Mở File Explorer</h4>
+        <p>Nhấn tổ hợp phím <strong>Windows + E</strong> hoặc nhấp vào biểu tượng thư mục màu vàng trên thanh tác vụ.</p>
+        <Figure src={bai1s1} alt="Thanh tìm kiếm với biểu tượng thư mục File Explorer" />
+
+        <h4>2. Truy cập ổ đĩa / thư mục</h4>
+        <p>Ở cột bên trái, nhấp vào <strong>This PC</strong>, sau đó nhấp đúp vào một ổ đĩa không phải ổ hệ thống (ví dụ ổ D: hoặc E:). Nếu máy chỉ có ổ C:, hãy vào thư mục <strong>Documents</strong>.</p>
+        <Figure src={bai1s2} alt="Khung điều hướng File Explorer hiển thị các ổ đĩa" />
+
+        <h4>3. Tạo thư mục mới</h4>
+        <p>Nhấp chuột phải vào khoảng trống → chọn <strong>New → Folder</strong>. Đặt tên thư mục là <code>ThucHanh_hotensinhvien</code> (ví dụ <code>ThucHanh_NguyenHoangAnh</code>). Nhấn <strong>Enter</strong>.</p>
+        <Figure src={bai1s3} alt="Menu ngữ cảnh và danh sách tệp khi tạo thư mục mới" />
+
+        <h4>4. Vào thư mục vừa tạo</h4>
+        <p>Nhấp đúp vào thư mục <code>ThucHanh_NguyenHoangAnh</code>.</p>
+        <Figure src={bai1s4} alt="Cửa sổ File Explorer hiển thị thư mục trống ThucHanh_NguyenHoangAnh" />
+
+        <h4>5. Tạo tệp tin văn bản</h4>
+        <p>Nhấp chuột phải vào khoảng trống → <strong>New → Text Document</strong>. Đặt tên là <code>GhiChu.txt</code>. Nhấn <strong>Enter</strong>.</p>
+        <Figure src={bai1s5} alt="Menu ngữ cảnh hiển thị tùy chọn tạo Text Document" />
+        <div className="my-4 overflow-x-auto rounded-lg border border-border">
+          <table className="w-full text-sm">
+            <thead className="bg-[var(--brand-soft)]">
+              <tr><th className="px-3 py-2 text-left">Name</th><th className="px-3 py-2 text-left">Date modified</th><th className="px-3 py-2 text-left">Type</th><th className="px-3 py-2 text-left">Size</th></tr>
+            </thead>
+            <tbody>
+              <tr className="border-t border-border"><td className="px-3 py-2">GhiChu</td><td className="px-3 py-2">3/8/2026 4:13 PM</td><td className="px-3 py-2">Text Document</td><td className="px-3 py-2">0 KB</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>6. Đổi tên tệp tin</h4>
+        <p>Nhấp chuột phải vào tệp <code>GhiChu.txt</code> → chọn <strong>Rename</strong>. Đổi tên thành <code>GhiChuQuanTrong.txt</code>. Nhấn <strong>Enter</strong>.</p>
+        <div className="grid gap-4 sm:grid-cols-2">
+          <Figure src={bai1s6a} alt="Menu Rename trong File Explorer" />
+          <Figure src={bai1s6b} alt="Tệp sau khi đổi tên thành GhiChuQuanTrong" />
+        </div>
+
+        <h4>7. Tạo thư mục con</h4>
+        <p>Trong thư mục <code>ThucHanh_NguyenHoangAnh</code>, nhấp chuột phải → <strong>New → Folder</strong>. Đặt tên là <code>TaiLieu</code>.</p>
+        <Figure src={bai1s7} alt="Tạo thư mục con TaiLieu" />
+
+        <h4>8. Sao chép tệp tin (Copy &amp; Paste)</h4>
+        <ul>
+          <li>Nhấp chuột phải vào tệp <code>GhiChuQuanTrong.txt</code> → chọn <strong>Copy</strong> (hoặc <strong>Ctrl + C</strong>).</li>
+          <li>Nhấp đúp vào thư mục <code>TaiLieu</code>, nhấp chuột phải vào khoảng trống bên trong → chọn <strong>Paste</strong> (hoặc <strong>Ctrl + V</strong>). Bây giờ bạn có một bản sao của tệp trong thư mục <code>TaiLieu</code>.</li>
+        </ul>
+        <Figure src={bai1s8a} alt="Menu ngữ cảnh với các tùy chọn Cut, Copy, Rename, Share, Delete" />
+        <Figure src={bai1s8b} alt="Thư mục TaiLieu bên trong ThucHanh_NguyenHoangAnh" />
+        <Figure src={bai1s8c} alt="Menu Paste và tệp GhiChuQuanTrong xuất hiện trong TaiLieu" />
+
+        <h4>9. Di chuyển tệp tin (Cut &amp; Paste)</h4>
+        <ul>
+          <li>Quay lại thư mục <code>ThucHanh_NguyenHoangAnh</code>. Tạo một tệp mới tên là <code>DiChuyen.txt</code>.</li>
+          <li>Nhấp chuột phải vào tệp <code>DiChuyen.txt</code> → chọn <strong>Cut</strong> (hoặc <strong>Ctrl + X</strong>).</li>
+          <li>Nhấp đúp vào thư mục <code>TaiLieu</code>, nhấp chuột phải vào khoảng trống → chọn <strong>Paste</strong> (hoặc <strong>Ctrl + V</strong>). Tệp gốc đã biến mất khỏi vị trí cũ và chỉ còn ở vị trí mới.</li>
+        </ul>
+        <Figure src={bai1s9a} alt="File Explorer hiển thị TaiLieu, GhiChuQuanTrong và DiChuyen" />
+        <Figure src={bai1s9b} alt="Menu Cut cho tệp DiChuyen" />
+        <Figure src={bai1s9c} alt="Kết quả sau khi Paste DiChuyen vào TaiLieu" />
+
+        <h4>10. Xóa tệp tin</h4>
+        <p>Trong thư mục <code>TaiLieu</code>, nhấp chuột phải vào tệp <code>GhiChuQuanTrong.txt</code> → chọn <strong>Delete</strong>. Tệp sẽ được chuyển vào <strong>Thùng rác (Recycle Bin)</strong>.</p>
+        <Figure src={bai1s10} alt="Xóa tệp GhiChuQuanTrong vào Thùng rác" />
+
+        <h4>11. Xóa vĩnh viễn</h4>
+        <p>Chọn tệp <code>DiChuyen.txt</code>, nhấn giữ phím <strong>Shift</strong> và nhấn phím <strong>Delete</strong>. Một cảnh báo sẽ hiện ra. Nếu đồng ý, tệp sẽ bị xóa vĩnh viễn mà không qua Thùng rác.</p>
+        <p className="text-sm text-muted-foreground">Đường dẫn: <code>This PC &gt; New Volume (D:) &gt; New folder &gt; ThucHanh_NguyenHoangAnh</code></p>
+        <div className="my-4 overflow-x-auto rounded-lg border border-border">
+          <table className="w-full text-sm">
+            <thead className="bg-[var(--brand-soft)]">
+              <tr><th className="px-3 py-2 text-left">Name</th><th className="px-3 py-2 text-left">Date modified</th><th className="px-3 py-2 text-left">Type</th><th className="px-3 py-2 text-left">Size</th></tr>
+            </thead>
+            <tbody>
+              <tr className="border-t border-border"><td className="px-3 py-2">TaiLieu</td><td className="px-3 py-2">3/8/2026 4:23 PM</td><td className="px-3 py-2">File folder</td><td className="px-3 py-2"></td></tr>
+              <tr className="border-t border-border"><td className="px-3 py-2">GhiChuQuanTrong</td><td className="px-3 py-2">3/8/2026 4:13 PM</td><td className="px-3 py-2">Text Document</td><td className="px-3 py-2">0 KB</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <Figure src={bai1s11a} alt="Danh sách tệp trong thư mục ThucHanh_NguyenHoangAnh" />
+        <Figure src={bai1s11b} alt="Thùng rác (Recycle Bin) hiển thị GhiChuQuanTrong đã xóa" />
+        <Figure src={bai1s11c} alt="Hộp thoại Delete File xác nhận xóa tệp DiChuyen" />
+
+        <h4>12. Khôi phục từ Thùng rác (tùy chọn)</h4>
+        <p>Tìm biểu tượng <strong>Recycle Bin</strong> trên màn hình nền, nhấp đúp để mở. Tìm tệp <code>GhiChuQuanTrong.txt</code> đã xóa, nhấp chuột phải vào nó và chọn <strong>Restore</strong>. Tệp sẽ quay trở lại vị trí ban đầu.</p>
+        <Figure src={bai1s12} alt="Menu ngữ cảnh và cửa sổ File Explorer khi khôi phục tệp từ Recycle Bin" />
+      </section>
+    </article>
+  );
+}
