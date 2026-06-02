@@ -459,18 +459,14 @@ function SummaryPage() {
           Trang Tổng kết
         </p>
         <h2 className="mt-1 text-3xl font-bold text-[var(--brand-deep)]">
-          Nhìn lại hành trình xây dựng Portfolio
+          Tổng kết
         </h2>
       </header>
 
       <section className="prose-section">
         <h3>Trải nghiệm cá nhân</h3>
         <p>
-          Khi mới nhận đề bài, mình hình dung Portfolio chỉ là việc gom các bài tập
-          lại. Càng làm mình càng nhận ra đây là một bài tập về <em>tư duy hệ
-          thống</em>: từ cách đặt tên tệp, lưu trữ bằng chứng, đến cách kể lại câu
-          chuyện học tập sao cho người đọc — và cả mình của vài năm sau — đều hiểu
-          được. Quá trình ấy buộc mình phải sống chậm lại với từng kỹ năng đã học.
+          Khi mới nhận đề bài, mình hình dung Portfolio chỉ là việc gom các bài tập lại. Căng làm mình càng nhận ra đây là một bài tập về <em>tư duy hệ thống</em>: từ cách đặt tên tệp, lưu trữ bằng chứng, đến cách kể lại câu chuyện học tập sao cho người đọc — và cả bản thân của vài năm sau — đều hiểu được. Quá trình này buộc mình phải sống chậm lại với từng kỹ năng đã học.
         </p>
       </section>
 
@@ -478,24 +474,19 @@ function SummaryPage() {
         <h3>Những kiến thức và kỹ năng quan trọng nhất</h3>
         <ul>
           <li>
-            <strong>Quản lý dữ liệu cá nhân:</strong> đặt tên, phân loại và sao lưu
-            theo quy tắc 3-2-1 đã trở thành thói quen hàng ngày.
+            <strong>Quản lý dữ liệu cá nhân:</strong> đặt tên, phân loại và sao lưu theo quy tắc 3-2-1 đã trở thành thói quen hàng ngày.
           </li>
           <li>
-            <strong>Tìm kiếm và đánh giá thông tin:</strong> các toán tử nâng cao và
-            bộ tiêu chí CRAAP giúp mình lọc nguồn nhanh và đáng tin hơn.
+            <strong>Tìm kiếm và đánh giá thông tin:</strong> các toán tử nâng cao và bộ tiêu chí CRAAP giúp mình lọc nguồn nhanh và đáng tin hơn.
           </li>
           <li>
-            <strong>Làm việc với AI:</strong> viết prompt theo cấu trúc Role-Context-
-            Task-Format-Constraint và luôn kiểm chứng đầu ra.
+            <strong>Làm việc với AI:</strong> viết prompt theo cấu trúc Role-Context-Task-Format-Constraint và luôn kiểm chứng đầu ra.
           </li>
           <li>
-            <strong>Hợp tác trực tuyến:</strong> dùng Trello, Discord, GitHub
-            Projects một cách có nguyên tắc để nhóm chạy mượt.
+            <strong>Hợp tác trực tuyến:</strong> dùng Trello, Discord, GitHub Projects một cách có nguyên tắc để nhóm chạy mượt.
           </li>
           <li>
-            <strong>Đạo đức số:</strong> minh bạch hóa mức độ sử dụng AI và bảo vệ
-            dữ liệu cá nhân là phần không tách rời của năng lực số.
+            <strong>Đạo đức số:</strong> minh bạch hóa mức độ sử dụng AI và bảo vệ dữ liệu cá nhân là phần không tách rời của năng lực số.
           </li>
         </ul>
       </section>
@@ -503,24 +494,17 @@ function SummaryPage() {
       <section className="prose-section">
         <h3>Điều tâm đắc và thách thức</h3>
         <p>
-          Phần mình tâm đắc nhất là Bài 6 — bộ nguyên tắc cá nhân về sử dụng AI có
-          trách nhiệm. Việc tự viết ra 7 điều cam kết khiến mình ý thức rõ hơn về
-          ranh giới giữa hỗ trợ và phụ thuộc.
+          Phần mình tâm đắc nhất là Bài 6 — bộ nguyên tắc cá nhân về sử dụng AI có trách nhiệm. Việc tự viết ra 7 điều cam kết khiến mình ý thức rõ hơn về ranh giới giữa hỗ trợ và phụ thuộc.
         </p>
         <p>
-          Thách thức lớn nhất là duy trì sự nhất quán xuyên suốt 6 bài tập: cùng một
-          cấu trúc trình bày, cùng một phong cách hình ảnh, cùng một mức độ chi
-          tiết. Mình giải quyết bằng cách lập một template Markdown chung và đặt
-          deadline phụ cho mỗi bài.
+          Thách thức lớn nhất là duy trì sự nhất quán xuyên suốt 6 bài tập: cùng một cấu trúc trình bày, cùng một phong cách hình ảnh, cùng một mức độ chi tiết. Đồng thời, thiết kế giao diện của Portfolio vừa có thể hiển thị đẹp trên khác nhau vừa các chỉnh sửa nội dung thuận lợi.
         </p>
       </section>
 
       <section className="prose-section">
         <h3>Định hướng tiếp theo</h3>
         <p>
-          Mình sẽ tiếp tục cập nhật Portfolio này sau mỗi học kỳ, bổ sung các dự án
-          phần cứng nhúng và AI ứng dụng. Mục tiêu cuối năm 2 là biến trang này
-          thành một website cá nhân hoàn chỉnh có CV, blog kỹ thuật và demo dự án.
+          Thách thức lớn nhất là duy trì sự nhất quán xuyên suốt 6 bài tập theo cùng một cấu trúc trình bày, một phong cách hình ảnh và một mức độ chi tiết. Mình sẽ liên tục cập nhật Portfolio này, dù để định hướng về phía nào hay là những kiến thức mới mình học được trong tương lai.
         </p>
       </section>
     </article>
