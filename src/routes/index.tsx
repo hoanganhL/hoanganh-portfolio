@@ -631,3 +631,305 @@ function Bai1Page() {
     </article>
   );
 }
+
+type SourceRow = {
+  stt: number;
+  title: string;
+  authors: string;
+  type: string;
+  criteria: { label: string; value: string }[];
+  reliability: "Rất Cao" | "Cao" | "Khá" | "Trung bình" | "Thấp";
+  strengths: string;
+  weaknesses: string;
+};
+
+const bai2Sources: SourceRow[] = [
+  {
+    stt: 1,
+    title: "AI in Education: Promises and Implications for Teaching and Learning",
+    authors: "Chen et al., 2020",
+    type: "Bài báo khoa học",
+    criteria: [
+      { label: "Tác giả", value: "Chuyên gia từ ĐH uy tín" },
+      { label: "NXB", value: "Tạp chí chuẩn Q1" },
+      { label: "PPNC", value: "Systematic review" },
+      { label: "Cập nhật", value: "Không quá cũ (2020)" },
+    ],
+    reliability: "Cao",
+    strengths:
+      "Phương pháp nghiên cứu là tổng quan hệ thống nên mang lại cái nhìn toàn diện. Số lượng trích dẫn rất cao chứng tỏ giá trị tham khảo lớn.",
+    weaknesses:
+      "Xuất bản năm 2020, nghĩa là dữ liệu thu thập có thể từ 2018-2019 (trước khi có sự bùng nổ của các AI như ChatGPT). Do đó, một số công nghệ được nhắc đến có thể đã lỗi thời.",
+  },
+  {
+    stt: 2,
+    title: "Artificial Intelligence in Higher Education: The State of the Field",
+    authors: "Zawacki-Richter et al., 2019",
+    type: "Bài báo khoa học",
+    criteria: [
+      { label: "Tác giả", value: "Các nhà nghiên cứu EdTech hàng đầu" },
+      { label: "NXB", value: "Int J Educ Technol High Educ" },
+      { label: "PPNC", value: "Systematic review" },
+      { label: "Trích dẫn", value: "Rất cao" },
+      { label: "Cập nhật", value: "Hơi cũ nhưng mang tính nền tảng" },
+    ],
+    reliability: "Cao",
+    strengths:
+      "Đây là một trong những bài báo nền tảng thường xuyên được trích dẫn nhất khi nghiên cứu về AI trong giáo dục đại học. Tác giả là những chuyên gia hàng đầu về EdTech. Đánh giá rất kỹ lưỡng về thực trạng áp dụng AI.",
+    weaknesses:
+      "Tính cập nhật không cao và thiên về phân tích bối cảnh lịch sử và nền tảng hơn là các ứng dụng AI hiện đại (2023-2024).",
+  },
+  {
+    stt: 3,
+    title: "Personalized Learning through AI",
+    authors: "Holmes & Tuomi, 2022",
+    type: "Bài báo khoa học",
+    criteria: [
+      { label: "Tác giả", value: "Giáo sư về AI và học tập" },
+      { label: "NXB", value: "NXB học thuật" },
+      { label: "PPNC", value: "Nghiên cứu thực nghiệm" },
+      { label: "Trích dẫn", value: "Tăng nhanh" },
+      { label: "Cập nhật", value: "Rất mới (2022)" },
+    ],
+    reliability: "Cao",
+    strengths:
+      "Bài báo cập nhật và sát với thời điểm thực tế. Tác giả Wayne Holmes là một tên tuổi cực kỳ lớn trong lĩnh vực Trí tuệ nhân tạo trong giáo dục.",
+    weaknesses:
+      "Đòi hỏi người đọc phải có kiến thức nền tảng tốt để đọc vì tính lý thuyết cao.",
+  },
+  {
+    stt: 4,
+    title: "Ethical implications of AI in universities",
+    authors: "Bostrom, 2021",
+    type: "Bài báo khoa học",
+    criteria: [
+      { label: "Tác giả", value: "Triết gia và nhà nghiên cứu AI" },
+      { label: "NXB", value: "Tạp chí Ethics & Info Tech" },
+      { label: "PPNC", value: "Phân tích lý thuyết sâu sắc" },
+      { label: "Trích dẫn", value: "Ổn định" },
+      { label: "Cập nhật", value: "Mới (2021)" },
+    ],
+    reliability: "Cao",
+    strengths:
+      "Nick Bostrom là một triết gia nổi tiếng thế giới về rủi ro của AI. Do đó, bài viết cung cấp một góc nhìn quan trọng thường bị bỏ quên: Đạo đức trong việc áp dụng AI.",
+    weaknesses:
+      "Là một bài báo thiên về triết học và lý thuyết đạo đức, không có dữ liệu thực nghiệm về hiệu quả giảng dạy.",
+  },
+  {
+    stt: 5,
+    title: "Chatbots in University admissions",
+    authors: "Smith & Jones, 2023",
+    type: "Bài báo khoa học",
+    criteria: [
+      { label: "Tác giả", value: "Nghiên cứu sinh" },
+      { label: "NXB", value: "Conference paper IEEE" },
+      { label: "PPNC", value: "Khảo sát định lượng" },
+      { label: "Trích dẫn", value: "Còn ít (do mới xuất bản)" },
+      { label: "Cập nhật", value: "Rất mới (2023)" },
+    ],
+    reliability: "Khá",
+    strengths:
+      "Bài viết rất sát với thời điểm thực tế. Giải quyết một ứng dụng rất cụ thể và thực tiễn (tuyển sinh bằng Chatbot).",
+    weaknesses:
+      "Conference paper sẽ có quá trình peer-review ít khắt khe hơn so với xuất bản qua tạp chí. Đồng thời, do mới xuất bản nên chưa có nhiều trích dẫn để khẳng định độ uy tín.",
+  },
+  {
+    stt: 6,
+    title: "Artificial Intelligence in Education",
+    authors: "Holmes et al., 2019",
+    type: "Sách chuyên khảo",
+    criteria: [
+      { label: "Tác giả", value: "Đội ngũ chuyên gia từ ĐH College London" },
+      { label: "NXB", value: "Springer (rất uy tín)" },
+      { label: "Cập nhật", value: "Phù hợp làm tài liệu nền tảng" },
+    ],
+    reliability: "Cao",
+    strengths:
+      "Sách được xuất bản bởi các chuyên gia từ University College London (UCL) — một trong những trường đào tạo sư phạm hàng đầu thế giới.",
+    weaknesses:
+      "Sách mất nhiều thời gian để viết và xuất bản, nên tính cập nhật về mặt công nghệ cốt lõi sẽ không cao.",
+  },
+  {
+    stt: 7,
+    title: "Teaching in the Age of AI",
+    authors: "Baker, 2021",
+    type: "Sách chuyên khảo",
+    criteria: [
+      { label: "Tác giả", value: "Chuyên gia giáo dục độc lập" },
+      { label: "NXB", value: "Tự xuất bản" },
+      { label: "Cập nhật", value: "Mới nhưng chưa qua peer-review" },
+    ],
+    reliability: "Trung bình",
+    strengths:
+      "Văn phong dễ hiểu, mang tính ứng dụng cao, đưa ra nhiều lời khuyên thực tế cho giảng viên và sinh viên.",
+    weaknesses:
+      "Đây là sách tự xuất bản nên độ chuẩn xác khoa học của các tuyên bố trong sách chưa được kiểm chứng độc lập.",
+  },
+  {
+    stt: 8,
+    title: "AI and Education: Guidance for policy-makers",
+    authors: "UNESCO, 2021",
+    type: "Báo cáo tổ chức",
+    criteria: [
+      { label: "Tác giả/Cơ quan", value: "UNESCO (Tổ chức quốc tế uy tín)" },
+      { label: "PPNC", value: "Dựa trên tham vấn toàn cầu" },
+      { label: "Cập nhật", value: "Mới" },
+    ],
+    reliability: "Rất Cao",
+    strengths:
+      "Nguồn tài liệu cấp vĩ mô vô giá. UNESCO cung cấp cái nhìn toàn cầu, có tính định hướng và chiến lược cao, bao gồm cả các vấn đề về công bằng số và khoảng cách số.",
+    weaknesses:
+      "Tài liệu hướng tới các nhà hoạch định chính sách (chính phủ, hiệu trưởng), do đó có thể thiếu các hướng dẫn cụ thể ở cấp độ vi mô (ví dụ: cách dùng AI để giải một bài toán lập trình cho sinh viên).",
+  },
+  {
+    stt: 9,
+    title: "EDUCAUSE Horizon Report: Teaching and Learning Edition",
+    authors: "Pelletier et al., 2022",
+    type: "Báo cáo tổ chức",
+    criteria: [
+      { label: "Cơ quan", value: "EDUCAUSE (Hiệp hội uy tín về IT trong giáo dục)" },
+      { label: "PPNC", value: "Bầu chọn từ hội đồng chuyên gia (Delphi method)" },
+      { label: "Cập nhật", value: "Rất tốt" },
+    ],
+    reliability: "Cao",
+    strengths:
+      "Phương pháp thu thập dữ liệu dựa trên sự đồng thuận của hội đồng chuyên gia toàn cầu.",
+    weaknesses:
+      "Đây là báo cáo dự báo xu hướng tổng hợp nhiều công nghệ (không chỉ riêng AI), nên thời lượng phân tích sâu về cơ chế hoạt động của AI sẽ bị hạn chế.",
+  },
+  {
+    stt: 10,
+    title: "5 ways AI will change college",
+    authors: "EdTech Magazine, 2023",
+    type: "Nguồn mở (Internet)",
+    criteria: [
+      { label: "Tác giả", value: "Phóng viên công nghệ" },
+      { label: "Cơ quan", value: "Tạp chí mạng" },
+      { label: "PPNC", value: "Tổng hợp tin tức, không có nghiên cứu gốc" },
+      { label: "Cập nhật", value: "Rất mới nhưng thiếu tính hàn lâm" },
+    ],
+    reliability: "Thấp",
+    strengths:
+      "Thông tin mang tính thời sự, hình thức trình bày trực quan, dễ đọc, dễ tiếp cận.",
+    weaknesses:
+      "Không phải là tài liệu học thuật. Không có phương pháp nghiên cứu (thường là ý kiến cá nhân của nhà báo hoặc tổng hợp tin tức). Không nên dùng làm luận cứ chính để chứng minh một luận điểm khoa học trong báo cáo.",
+  },
+];
+
+const reliabilityStyle: Record<SourceRow["reliability"], string> = {
+  "Rất Cao": "bg-emerald-100 text-emerald-800 border-emerald-300",
+  "Cao": "bg-green-100 text-green-800 border-green-300",
+  "Khá": "bg-blue-100 text-blue-800 border-blue-300",
+  "Trung bình": "bg-amber-100 text-amber-800 border-amber-300",
+  "Thấp": "bg-red-100 text-red-800 border-red-300",
+};
+
+const bai2References: string[] = [
+  "Baker, T., 2021. Teaching in the Age of AI. 1st ed. New York: Independent Publishing.",
+  "Bostrom, N., 2021. Ethical implications of AI in universities. Ethics and Information Technology, 23(2), pp.145-158.",
+  "Chen, L., Chen, P. and Lin, Z., 2020. Artificial Intelligence in Education: A Review. IEEE Access, 8, pp.75264-75278.",
+  "EdTech Magazine, 2023. 5 ways AI will change college. [online] Available at: https://www.edtechmagazine.com/example-link [Truy cập ngày 21 Tháng 3 năm 2026].",
+  "Holmes, W., Bialik, M. and Fadel, C., 2019. Artificial Intelligence in Education: Promises and Implications for Teaching and Learning. Boston: Center for Curriculum Redesign.",
+  "Holmes, W. and Tuomi, I., 2022. State of the art and practice in AI in education. European Journal of Education, 57(4), pp.542-570.",
+  "Pelletier, K., McCormack, M., Reeves, J., Robert, J. and Arbino, N., 2022. 2022 EDUCAUSE Horizon Report: Teaching and Learning Edition. Boulder, CO: EDUCAUSE.",
+  "Smith, J. and Jones, M., 2023. Chatbots in University admissions: A student perspective. 2023 IEEE International Conference on Engineering, Technology and Education (TALE), pp.112-118.",
+  "UNESCO, 2021. AI and education: guidance for policy-makers. Paris: UNESCO Publishing.",
+  "Zawacki-Richter, O., Marín, V.I., Bond, M. and Gouverneur, F., 2019. Systematic review of research on artificial intelligence applications in higher education – where are the educators?. International Journal of Educational Technology in Higher Education, 16(1), p.39.",
+];
+
+function Bai2Page() {
+  return (
+    <article className="mx-auto max-w-5xl space-y-8">
+      <header className="border-l-4 border-[var(--brand)] pl-4">
+        <p className="text-sm uppercase tracking-widest text-[var(--brand)]">
+          Mục 2.4 · Khai thác dữ liệu và thông tin
+        </p>
+        <h2 className="mt-1 text-3xl font-bold text-[var(--brand-deep)]">
+          Bài 2 — Tìm kiếm và đánh giá thông tin học thuật
+        </h2>
+        <p className="mt-3 text-base text-foreground">
+          <strong>Chủ đề:</strong> Ứng dụng của Trí tuệ Nhân tạo (AI) trong Giáo dục Đại học
+        </p>
+        <div className="mt-2 grid gap-1 text-sm text-muted-foreground sm:grid-cols-2">
+          <p><strong className="text-foreground">Họ và tên sinh viên:</strong> Nguyễn Hoàng Anh</p>
+          <p><strong className="text-foreground">Mã số sinh viên:</strong> 25020459</p>
+        </div>
+      </header>
+
+      <section className="prose-section">
+        <h3>Đánh giá độ tin cậy của các nguồn thông tin</h3>
+        <p className="text-sm text-muted-foreground">
+          Mười nguồn tài liệu được đánh giá dựa trên 5 tiêu chí: Tác giả, Nhà xuất bản,
+          Phương pháp nghiên cứu (PPNC), Trích dẫn và Tính cập nhật.
+        </p>
+
+        <div className="mt-4 space-y-4">
+          {bai2Sources.map((s) => (
+            <div
+              key={s.stt}
+              className="rounded-xl border border-border bg-card p-5 shadow-sm"
+            >
+              <div className="flex flex-wrap items-start justify-between gap-3">
+                <div className="flex items-start gap-3">
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[var(--brand-soft)] text-sm font-bold text-[var(--brand-deep)]">
+                    {s.stt}
+                  </span>
+                  <div>
+                    <h4 className="m-0 text-base font-semibold text-[var(--brand-deep)]">
+                      {s.title}
+                    </h4>
+                    <p className="m-0 mt-1 text-sm text-muted-foreground">
+                      {s.authors} · <em>{s.type}</em>
+                    </p>
+                  </div>
+                </div>
+                <span
+                  className={`rounded-full border px-3 py-1 text-xs font-semibold ${reliabilityStyle[s.reliability]}`}
+                >
+                  Độ tin cậy: {s.reliability}
+                </span>
+              </div>
+
+              <div className="mt-4 grid gap-4 md:grid-cols-3">
+                <div className="rounded-lg bg-[var(--brand-soft)]/40 p-3">
+                  <p className="m-0 mb-2 text-xs font-semibold uppercase tracking-wider text-[var(--brand-deep)]">
+                    5 tiêu chí đánh giá
+                  </p>
+                  <ul className="m-0 list-none space-y-1 p-0 text-sm">
+                    {s.criteria.map((c) => (
+                      <li key={c.label} className="leading-snug">
+                        <span className="font-medium text-foreground">{c.label}:</span>{" "}
+                        <span className="text-muted-foreground">{c.value}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="rounded-lg border border-green-200 bg-green-50/60 p-3">
+                  <p className="m-0 mb-1 text-xs font-semibold uppercase tracking-wider text-green-800">
+                    Điểm mạnh
+                  </p>
+                  <p className="m-0 text-sm leading-relaxed text-foreground">{s.strengths}</p>
+                </div>
+                <div className="rounded-lg border border-amber-200 bg-amber-50/60 p-3">
+                  <p className="m-0 mb-1 text-xs font-semibold uppercase tracking-wider text-amber-800">
+                    Điểm yếu
+                  </p>
+                  <p className="m-0 text-sm leading-relaxed text-foreground">{s.weaknesses}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="prose-section">
+        <h3>Danh mục tài liệu tham khảo (Định dạng Harvard)</h3>
+        <ol className="space-y-2 text-sm leading-relaxed">
+          {bai2References.map((r, i) => (
+            <li key={i}>{r}</li>
+          ))}
+        </ol>
+      </section>
+    </article>
+  );
+}
