@@ -863,62 +863,54 @@ function Bai2Page() {
           Phương pháp nghiên cứu (PPNC), Trích dẫn và Tính cập nhật.
         </p>
 
-        <div className="mt-4 space-y-4">
-          {bai2Sources.map((s) => (
-            <div
-              key={s.stt}
-              className="rounded-xl border border-border bg-card p-5 shadow-sm"
-            >
-              <div className="flex flex-wrap items-start justify-between gap-3">
-                <div className="flex items-start gap-3">
-                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[var(--brand-soft)] text-sm font-bold text-[var(--brand-deep)]">
-                    {s.stt}
-                  </span>
-                  <div>
-                    <h4 className="m-0 text-base font-semibold text-[var(--brand-deep)]">
-                      {s.title}
-                    </h4>
-                    <p className="m-0 mt-1 text-sm text-muted-foreground">
-                      {s.authors} · <em>{s.type}</em>
+        <div className="mt-4 overflow-x-auto rounded-lg border border-border">
+          <table className="w-full border-collapse text-sm">
+            <thead className="bg-[var(--brand-soft)] text-[var(--brand-deep)]">
+              <tr>
+                <th className="border border-border px-3 py-2 text-left font-semibold w-12">STT</th>
+                <th className="border border-border px-3 py-2 text-left font-semibold">Tên tài liệu / Tác giả</th>
+                <th className="border border-border px-3 py-2 text-left font-semibold w-36">Loại nguồn</th>
+                <th className="border border-border px-3 py-2 text-left font-semibold">Đánh giá tóm tắt (Dựa trên 5 tiêu chí)</th>
+                <th className="border border-border px-3 py-2 text-left font-semibold">Xếp hạng độ tin cậy</th>
+              </tr>
+            </thead>
+            <tbody>
+              {bai2Sources.map((s) => (
+                <tr key={s.stt} className="align-top">
+                  <td className="border border-border px-3 py-3 font-semibold text-[var(--brand-deep)]">{s.stt}</td>
+                  <td className="border border-border px-3 py-3">
+                    <p className="m-0 font-medium text-foreground">{s.title}</p>
+                    <p className="m-0 mt-1 text-xs text-muted-foreground">({s.authors})</p>
+                  </td>
+                  <td className="border border-border px-3 py-3 text-foreground">{s.type}</td>
+                  <td className="border border-border px-3 py-3">
+                    <ul className="m-0 list-none space-y-1.5 p-0">
+                      {s.criteria.map((c) => (
+                        <li key={c.label} className="leading-snug">
+                          <strong className="text-foreground">{c.label}:</strong>{" "}
+                          <span className="text-foreground">{c.value}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </td>
+                  <td className="border border-border px-3 py-3">
+                    <p className="m-0">
+                      <strong className="text-foreground">Độ tin cậy:</strong>{" "}
+                      <span className={`inline-block rounded-full border px-2 py-0.5 text-xs font-semibold ${reliabilityStyle[s.reliability]}`}>
+                        {s.reliability}
+                      </span>
                     </p>
-                  </div>
-                </div>
-                <span
-                  className={`rounded-full border px-3 py-1 text-xs font-semibold ${reliabilityStyle[s.reliability]}`}
-                >
-                  Độ tin cậy: {s.reliability}
-                </span>
-              </div>
-
-              <div className="mt-4 grid gap-4 md:grid-cols-3">
-                <div className="rounded-lg bg-[var(--brand-soft)]/40 p-3">
-                  <p className="m-0 mb-2 text-xs font-semibold uppercase tracking-wider text-[var(--brand-deep)]">
-                    5 tiêu chí đánh giá
-                  </p>
-                  <ul className="m-0 list-none space-y-1 p-0 text-sm">
-                    {s.criteria.map((c) => (
-                      <li key={c.label} className="leading-snug">
-                        <span className="font-medium text-foreground">{c.label}:</span>{" "}
-                        <span className="text-muted-foreground">{c.value}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="rounded-lg border border-green-200 bg-green-50/60 p-3">
-                  <p className="m-0 mb-1 text-xs font-semibold uppercase tracking-wider text-green-800">
-                    Điểm mạnh
-                  </p>
-                  <p className="m-0 text-sm leading-relaxed text-foreground">{s.strengths}</p>
-                </div>
-                <div className="rounded-lg border border-amber-200 bg-amber-50/60 p-3">
-                  <p className="m-0 mb-1 text-xs font-semibold uppercase tracking-wider text-amber-800">
-                    Điểm yếu
-                  </p>
-                  <p className="m-0 text-sm leading-relaxed text-foreground">{s.weaknesses}</p>
-                </div>
-              </div>
-            </div>
-          ))}
+                    <p className="m-0 mt-2 leading-snug">
+                      <strong className="text-foreground">Điểm mạnh:</strong> {s.strengths}
+                    </p>
+                    <p className="m-0 mt-2 leading-snug">
+                      <strong className="text-foreground">Điểm yếu:</strong> {s.weaknesses}
+                    </p>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </section>
 
