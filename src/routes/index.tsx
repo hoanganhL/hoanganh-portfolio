@@ -848,11 +848,11 @@ function Bai2Page() {
           Bài 2 — Tìm kiếm và đánh giá thông tin học thuật
         </h2>
         <p className="mt-3 text-base text-foreground">
-          <strong>Chủ đề:</strong> Ứng dụng của Trí tuệ Nhân tạo (AI) trong Giáo dục Đại học
+          {"\n"}
         </p>
         <div className="mt-2 grid gap-1 text-sm text-muted-foreground sm:grid-cols-2">
-          <p><strong className="text-foreground">Họ và tên sinh viên:</strong> Nguyễn Hoàng Anh</p>
-          <p><strong className="text-foreground">Mã số sinh viên:</strong> 25020459</p>
+          <p>{"\n"}</p>
+          <p>{"\n"}</p>
         </div>
       </header>
 
