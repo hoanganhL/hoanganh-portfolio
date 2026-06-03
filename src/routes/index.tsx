@@ -459,18 +459,14 @@ function SummaryPage() {
           Trang Tổng kết
         </p>
         <h2 className="mt-1 text-3xl font-bold text-[var(--brand-deep)]">
-          Nhìn lại hành trình xây dựng Portfolio
+          {"\n"}
         </h2>
       </header>
 
       <section className="prose-section">
         <h3>Trải nghiệm cá nhân</h3>
         <p>
-          Khi mới nhận đề bài, mình hình dung Portfolio chỉ là việc gom các bài tập
-          lại. Càng làm mình càng nhận ra đây là một bài tập về <em>tư duy hệ
-          thống</em>: từ cách đặt tên tệp, lưu trữ bằng chứng, đến cách kể lại câu
-          chuyện học tập sao cho người đọc — và cả mình của vài năm sau — đều hiểu
-          được. Quá trình ấy buộc mình phải sống chậm lại với từng kỹ năng đã học.
+          Khi mới nhận đề bài, mình hình dung Portfolio chỉ là việc gom các bài tập lại. Càng làm mình càng nhận ra đây là một bài tập về tư duy hệ thống: từ cách đặt tên tệp, lưu trữ bằng chứng, đến cách kể lại câu chuyện học tập sao cho người đọc có thể dễ dàng hiểu được. Quá trình này giúp mình hiểu rằng học tập không chỉ là tiếp thu lý thuyết, mà là cách chúng ta đóng gói, trình bày và chuyển hóa kiến thức đó thành những sản phẩm thực tế có giá trị chia sẻ.
         </p>
       </section>
 
@@ -503,24 +499,17 @@ function SummaryPage() {
       <section className="prose-section">
         <h3>Điều tâm đắc và thách thức</h3>
         <p>
-          Phần mình tâm đắc nhất là Bài 6 — bộ nguyên tắc cá nhân về sử dụng AI có
-          trách nhiệm. Việc tự viết ra 7 điều cam kết khiến mình ý thức rõ hơn về
-          ranh giới giữa hỗ trợ và phụ thuộc.
+          Phần mình tâm đắc nhất là việc hoàn thiện chính trang Portfolio này. Việc có một không gian số riêng để lưu trữ dự án cá nhân giúp mình tự tin hơn khi chia sẻ năng lực của mình với thầy cô và bạn bè. Mình cũng rất thích bài tập dự án giữa kỳ của môn học, vì dự án đã giúp mình hiểu được cách biên tập nội dung với sự trợ giúp của AI.
         </p>
         <p>
-          Thách thức lớn nhất là duy trì sự nhất quán xuyên suốt 6 bài tập: cùng một
-          cấu trúc trình bày, cùng một phong cách hình ảnh, cùng một mức độ chi
-          tiết. Mình giải quyết bằng cách lập một template Markdown chung và đặt
-          deadline phụ cho mỗi bài.
+          Thách thức lớn nhất là quản lý thời gian và sắp xếp dữ liệu: việc gom toàn bộ sản phẩm, file PDF, video từ các bài tập trước đó và tóm tắt lại quy trình thực hiện tốn khá nhiều thời gian. Đồng thời, thiết kế giao diện làm sao để Portfolio vừa khoa học, dễ theo dõi nhưng vẫn đảm bảo tính thẩm mỹ cũng là một vấn đề khó trong dự án này.
         </p>
       </section>
 
       <section className="prose-section">
-        <h3>Định hướng tiếp theo</h3>
+        <h3>{"\n"}</h3>
         <p>
-          Mình sẽ tiếp tục cập nhật Portfolio này sau mỗi học kỳ, bổ sung các dự án
-          phần cứng nhúng và AI ứng dụng. Mục tiêu cuối năm 2 là biến trang này
-          thành một website cá nhân hoàn chỉnh có CV, blog kỹ thuật và demo dự án.
+          {"\n"}
         </p>
       </section>
     </article>
