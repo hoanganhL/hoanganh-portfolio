@@ -301,7 +301,7 @@ function Portfolio() {
 
           {exercises.map((ex) => (
             <TabsContent key={ex.id} value={ex.id} className="mt-8">
-              {ex.id === "bai1" ? <Bai1Page /> : <ExercisePage data={ex} />}
+              {ex.id === "bai1" ? <Bai1Page /> : ex.id === "bai2" ? <Bai2Page /> : <ExercisePage data={ex} />}
             </TabsContent>
           ))}
 
