@@ -301,7 +301,7 @@ function Portfolio() {
 
           {exercises.map((ex) => (
             <TabsContent key={ex.id} value={ex.id} className="mt-8">
-              {ex.id === "bai1" ? <Bai1Page /> : ex.id === "bai2" ? <Bai2Page /> : ex.id === "bai3" ? <Bai3Page /> : <ExercisePage data={ex} />}
+              {ex.id === "bai1" ? <Bai1Page /> : ex.id === "bai2" ? <Bai2Page /> : ex.id === "bai3" ? <Bai3Page /> : ex.id === "bai4" ? <Bai4Page /> : <ExercisePage data={ex} />}
             </TabsContent>
           ))}
 
@@ -1155,6 +1155,171 @@ function Bai3Page() {
               ))}
             </ul>
           </div>
+        </div>
+      </section>
+    </article>
+  );
+}
+
+import bai4Pdf from "@/assets/bai4.pdf.asset.json";
+import bai4Trello from "@/assets/bai4/trello.png.asset.json";
+import bai4Docs1 from "@/assets/bai4/docs1.png.asset.json";
+import bai4Docs2 from "@/assets/bai4/docs2.png.asset.json";
+import bai4Drive from "@/assets/bai4/drive.png.asset.json";
+import bai4Messenger from "@/assets/bai4/messenger.png.asset.json";
+
+type ToolBlock = {
+  id: string;
+  name: string;
+  bullets: string[];
+  images: { src: string; alt: string }[];
+  pros: string[];
+  cons: string[];
+};
+
+const bai4Tools: ToolBlock[] = [
+  {
+    id: "trello",
+    name: "1. Trello",
+    bullets: [
+      "Chia các giai đoạn của dự án thành các đầu việc: Content → Slide → Thuyết trình.",
+      "Trong các đầu việc, có các nhiệm vụ nhỏ và có deadline cho từng nhiệm vụ.",
+      "Giám sát tiến độ hoàn thành bằng dấu tích trên bảng Trello kết hợp giám sát nội dung trên Google Docs.",
+    ],
+    images: [{ src: bai4Trello.url, alt: "Bảng Trello quản lý dự án" }],
+    pros: [
+      "Giao diện trực quan, dễ dùng, giúp có cái nhìn tổng thể khi quản lý công việc.",
+      "Dễ dàng gắn thẻ thành viên và đặt thời hạn cụ thể cho từng đầu việc.",
+      "Dễ dàng cho các thành viên thông báo tiến độ công việc.",
+    ],
+    cons: [
+      "Giao diện dễ bị rối khi có nhiều thẻ (dự án trong bài là dự án nhỏ nên không gặp vấn đề này).",
+      "Cần trả phí để sử dụng các tính năng nâng cao; bản miễn phí tương đối hạn chế.",
+    ],
+  },
+  {
+    id: "docs",
+    name: "2. Google Docs",
+    bullets: [
+      "Trực tiếp giám sát tiến độ chi tiết của các thành viên.",
+      "Trực tiếp kiểm duyệt và chỉnh sửa nội dung ngay trên file Google Docs.",
+    ],
+    images: [
+      { src: bai4Docs1.url, alt: "Google Docs — lịch sử phiên bản" },
+      { src: bai4Docs2.url, alt: "Google Docs — nội dung tài liệu" },
+    ],
+    pros: [
+      "Nhiều người có thể cùng tương tác với một file cùng một lúc.",
+      "Có sẵn các bản sao lưu dữ liệu để tránh mất dữ liệu ngoài dự tính.",
+    ],
+    cons: ["Các thành viên có thể vô tình chỉnh sửa phần văn bản của nhau nếu không cẩn thận."],
+  },
+  {
+    id: "drive",
+    name: "3. Google Drive",
+    bullets: [
+      "Chia thành 2 tầng thư mục: tầng 1 là thư mục tổng, tầng 2 là các thư mục chia theo các đầu việc của dự án, giúp dễ dàng lấy file mà không bị nhầm lẫn.",
+      "Các thư mục đặt quyền Editor cho các thành viên để có thể thay đổi file linh hoạt.",
+    ],
+    images: [{ src: bai4Drive.url, alt: "Cấu trúc thư mục Google Drive" }],
+    pros: [
+      "Tạo cấu trúc thư mục rõ ràng theo từng phần.",
+      "Trưởng nhóm có thể trao quyền phù hợp để bảo mật dữ liệu.",
+      "Tất cả thành viên có thể truy cập file từ bất kì đâu.",
+    ],
+    cons: ["Giới hạn về dung lượng.", "Dễ bị rối nếu không sắp xếp."],
+  },
+  {
+    id: "messenger",
+    name: "4. Messenger",
+    bullets: ["Sử dụng làm công cụ giao tiếp chính giữa các thành viên."],
+    images: [{ src: bai4Messenger.url, alt: "Giao diện chat Messenger nhóm" }],
+    pros: ["Ứng dụng giao tiếp phổ biến, ai cũng sử dụng.", "Tốc độ nhanh."],
+    cons: [
+      "Giới hạn về dung lượng và chất lượng file gửi lên (đã tránh được vì dự án dùng link Google Docs).",
+      "Không có khả năng lưu trữ lâu dài (kết hợp với Google Drive để khắc phục).",
+    ],
+  },
+];
+
+function Bai4Page() {
+  return (
+    <article className="mx-auto max-w-5xl space-y-8">
+      <header className="border-l-4 border-[var(--brand)] pl-4">
+        <p className="text-sm uppercase tracking-widest text-[var(--brand)]">
+          Báo cáo cá nhân · Công cụ cộng tác trực tuyến
+        </p>
+        <h2 className="mt-1 text-3xl font-bold text-[var(--brand-deep)]">
+          Trải nghiệm và đánh giá sử dụng công cụ cộng tác trực tuyến
+        </h2>
+        <div className="mt-3 grid gap-1 text-sm text-foreground sm:grid-cols-2">
+          <p><strong className="text-foreground">Vai trò:</strong> Trưởng nhóm và Kiểm duyệt tổng hợp nội dung</p>
+          <p><strong className="text-foreground">Chủ đề:</strong> Tư tưởng Hồ Chí Minh về Văn hóa</p>
+        </div>
+        <div className="mt-4">
+          <a
+            href={bai4Pdf.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-md border border-[var(--brand)] bg-[var(--brand-soft)] px-4 py-2 text-sm font-medium text-[var(--brand-deep)] transition hover:bg-[var(--brand)] hover:text-primary-foreground"
+          >
+            📄 Tải file gốc (BÀI 4.pdf)
+          </a>
+        </div>
+      </header>
+
+      <section className="prose-section">
+        <h3>I. Lựa chọn công cụ</h3>
+        <ul className="mt-3 space-y-2 text-foreground">
+          <li><strong>Quản lý dự án:</strong> Trello</li>
+          <li><strong>Soạn thảo tài liệu cộng tác:</strong> Google Docs</li>
+          <li><strong>Lưu trữ và chia sẻ tệp:</strong> Google Drive</li>
+          <li><strong>Giao tiếp nhóm:</strong> Messenger</li>
+        </ul>
+      </section>
+
+      <section className="prose-section">
+        <h3>II. Mô tả chi tiết</h3>
+        <div className="mt-4 space-y-8">
+          {bai4Tools.map((t) => (
+            <div key={t.id} className="rounded-xl border border-border bg-card p-5 shadow-sm">
+              <h4 className="m-0 text-lg font-semibold text-[var(--brand-deep)]">{t.name}</h4>
+              <ul className="mt-3 list-disc space-y-1.5 pl-5 text-sm leading-relaxed text-foreground">
+                {t.bullets.map((b, i) => (
+                  <li key={i}>{b}</li>
+                ))}
+              </ul>
+              {t.images.length > 0 && (
+                <div className={`mt-4 grid gap-4 ${t.images.length > 1 ? "md:grid-cols-2" : "grid-cols-1"}`}>
+                  {t.images.map((img, i) => (
+                    <figure key={i} className="overflow-hidden rounded-lg border border-border bg-muted">
+                      <img src={img.src} alt={img.alt} className="block w-full h-auto" loading="lazy" />
+                      <figcaption className="px-3 py-2 text-xs text-muted-foreground">{img.alt}</figcaption>
+                    </figure>
+                  ))}
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="prose-section">
+        <h3>III. Phân tích ưu &amp; nhược điểm</h3>
+        <div className="mt-4 grid gap-5 md:grid-cols-2">
+          {bai4Tools.map((t) => (
+            <div key={t.id} className="rounded-xl border border-border bg-card p-5 shadow-sm">
+              <h4 className="m-0 text-base font-semibold text-[var(--brand-deep)]">{t.name}</h4>
+              <p className="mt-3 mb-1 text-sm font-semibold text-emerald-700">Ưu điểm</p>
+              <ul className="list-disc space-y-1 pl-5 text-sm leading-relaxed text-foreground">
+                {t.pros.map((p, i) => <li key={i}>{p}</li>)}
+              </ul>
+              <p className="mt-3 mb-1 text-sm font-semibold text-rose-700">Nhược điểm</p>
+              <ul className="list-disc space-y-1 pl-5 text-sm leading-relaxed text-foreground">
+                {t.cons.map((c, i) => <li key={i}>{c}</li>)}
+              </ul>
+            </div>
+          ))}
         </div>
       </section>
     </article>
