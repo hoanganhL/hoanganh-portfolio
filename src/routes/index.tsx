@@ -301,7 +301,7 @@ function Portfolio() {
 
           {exercises.map((ex) => (
             <TabsContent key={ex.id} value={ex.id} className="mt-8">
-              {ex.id === "bai1" ? <Bai1Page /> : ex.id === "bai2" ? <Bai2Page /> : <ExercisePage data={ex} />}
+              {ex.id === "bai1" ? <Bai1Page /> : ex.id === "bai2" ? <Bai2Page /> : ex.id === "bai3" ? <Bai3Page /> : <ExercisePage data={ex} />}
             </TabsContent>
           ))}
 
@@ -921,6 +921,241 @@ function Bai2Page() {
             <li key={i}>{r}</li>
           ))}
         </ol>
+      </section>
+    </article>
+  );
+}
+
+// ============== Bài 3 ==============
+import bai3Pdf from "@/assets/bai3.pdf.asset.json";
+
+type PromptLevel = { level: "Cơ bản" | "Cải tiến" | "Nâng cao"; prompt: string; feature: string };
+type Bai3Task = { id: string; title: string; subject: string; rows: PromptLevel[] };
+
+const bai3Tasks: Bai3Task[] = [
+  {
+    id: "tv1",
+    title: "Tác vụ 1: Tóm tắt bài đọc / tài liệu học thuật",
+    subject:
+      'Chủ đề giả định: Bài báo nghiên cứu về tác động của Trí tuệ nhân tạo (AI) đối với khoa học kỹ thuật — "The Importance of Artificial Intelligence (AI) Tools in the Modern Science, Engineering and Technological Research and Innovations: A Review" (nhiều tác giả).',
+    rows: [
+      {
+        level: "Cơ bản",
+        prompt: '"Tóm tắt bài viết về AI và khoa học kỹ thuật này cho tôi."',
+        feature: "Ngắn gọn, chung chung, AI tự quyết định độ dài và định dạng tóm tắt.",
+      },
+      {
+        level: "Cải tiến",
+        prompt:
+          '"Hãy tóm tắt bài báo về tác động của AI đối với khoa học kỹ thuật dưới đây trong khoảng 300 từ. Sử dụng các đầu mục (bullet points) để nêu bật 5 phát hiện chính."',
+        feature: "Có cấu trúc rõ ràng, quy định được dung lượng (300 từ) và định dạng đầu ra (đầu mục).",
+      },
+      {
+        level: "Nâng cao",
+        prompt:
+          '"Bạn là một nhà nghiên cứu khoa học công nghệ. Hãy đọc văn bản dưới đây và thực hiện: (1) Tóm tắt ý tưởng cốt lõi về vai trò của AI trong nghiên cứu khoa học bằng 1 câu duy nhất. (2) Liệt kê 3 đột phá kỹ thuật quan trọng nhất nhờ AI được đề cập trong bài. (3) Đưa ra góc nhìn phản biện về những rủi ro hoặc thách thức công nghệ của vấn đề này. Trình bày theo phong cách học thuật khách quan."',
+        feature:
+          "Role prompting (Nhà nghiên cứu), Chain-of-thought (chia nhỏ các bước phân tích), yêu cầu góc nhìn phản biện đa chiều.",
+      },
+    ],
+  },
+  {
+    id: "tv2",
+    title: "Tác vụ 2: Giải thích một khái niệm phức tạp",
+    subject: "Khái niệm: Kinh tế thị trường.",
+    rows: [
+      {
+        level: "Cơ bản",
+        prompt: '"Kinh tế thị trường là gì?"',
+        feature: "Câu hỏi mở, dễ dẫn đến định nghĩa khô khan như trong sách giáo khoa.",
+      },
+      {
+        level: "Cải tiến",
+        prompt:
+          '"Giải thích khái niệm kinh tế thị trường cho một học sinh trung học phổ thông. Hãy đưa ra các ví dụ minh họa thực tế về quy luật cung và cầu để làm rõ khái niệm."',
+        feature: "Xác định rõ đối tượng tiếp nhận (học sinh THPT) để điều chỉnh giọng văn và yêu cầu kết hợp ví dụ thực tế.",
+      },
+      {
+        level: "Nâng cao",
+        prompt:
+          '"Hãy giải thích khái niệm kinh tế thị trường bằng kỹ thuật Feynman (giải thích cho một đứa trẻ 10 tuổi). Sử dụng phép ẩn dụ liên quan đến một khu chợ bán đồ chơi, nơi người mua và người bán tự thương lượng giá cả mà không có ai ép buộc. Sau đó, hãy tóm tắt lại bằng ngôn ngữ chuyên môn của một nhà kinh tế học để người đọc đối chiếu."',
+        feature:
+          "Few-shot / Technique-based (áp dụng kỹ thuật Feynman), sử dụng phép ẩn dụ cụ thể (khu chợ đồ chơi) và đối chiếu đa phong cách.",
+      },
+    ],
+  },
+  {
+    id: "tv3",
+    title: "Tác vụ 3: Tạo bộ câu hỏi ôn tập cho một chủ đề",
+    subject: "Chủ đề: Lịch sử triều đại nhà Nguyễn.",
+    rows: [
+      {
+        level: "Cơ bản",
+        prompt: '"Tạo cho tôi 5 câu hỏi ôn tập về lịch sử nhà Nguyễn."',
+        feature: "Kết quả trả về ngẫu nhiên, có thể là câu hỏi tự luận hoặc trắc nghiệm, không kiểm soát được độ khó.",
+      },
+      {
+        level: "Cải tiến",
+        prompt:
+          '"Tạo 5 câu hỏi trắc nghiệm về những chính sách nội trị và ngoại giao của vua Minh Mạng thời Nguyễn. Mỗi câu hỏi kèm theo 4 lựa chọn (A, B, C, D) và đánh dấu đáp án đúng."',
+        feature: "Thu hẹp phạm vi nội dung (thời vua Minh Mạng) và quy định rõ cấu trúc bài tập trắc nghiệm.",
+      },
+      {
+        level: "Nâng cao",
+        prompt:
+          '"Bạn là một giáo viên Lịch sử cấp 3. Dựa trên nội dung về triều đại nhà Nguyễn, hãy tạo 5 câu hỏi trắc nghiệm phân hóa độ khó: 2 câu nhận biết (về các đời vua hoặc mốc thời gian sự kiện), 2 câu thông hiểu (về nguyên nhân/kết quả của các chính sách) và 1 câu vận dụng cao (đánh giá đa chiều về công và tội). Định dạng bắt buộc: [Câu hỏi] → [4 Lựa chọn] → [Đáp án] → [Giải thích chi tiết bối cảnh lịch sử cho đáp án đó]."',
+        feature:
+          "Role prompting (Giáo viên Lịch sử), phân loại cấp độ nhận thức rõ ràng (nhận biết, thông hiểu, vận dụng) và buộc AI phải giải thích logic lịch sử cho mỗi đáp án.",
+      },
+    ],
+  },
+];
+
+const levelStyle: Record<PromptLevel["level"], string> = {
+  "Cơ bản": "bg-slate-100 text-slate-800 border-slate-300",
+  "Cải tiến": "bg-blue-100 text-blue-800 border-blue-300",
+  "Nâng cao": "bg-emerald-100 text-emerald-800 border-emerald-300",
+};
+
+const bai3Principles: { title: string; body: string }[] = [
+  {
+    title: "Tính cụ thể và rõ ràng",
+    body: "Thay vì những câu lệnh chung chung, hãy chỉ định rõ dung lượng, định dạng và trọng tâm.",
+  },
+  {
+    title: "Thêm Context",
+    body: "Việc bổ sung đối tượng mục tiêu giúp AI tự động điều chỉnh từ vựng, văn phong và mức độ phức tạp cho phù hợp.",
+  },
+  {
+    title: "Role Prompting",
+    body: "Bằng cách gán một định danh cụ thể, AI sẽ kích hoạt các tập dữ liệu liên quan đến chuyên môn và phong cách sư phạm của vai trò đó, giúp câu trả lời chuyên sâu và đáng tin cậy hơn.",
+  },
+  {
+    title: "Thêm Chain-of-Thought",
+    body: "Đối với các tác vụ phức tạp, hãy chia nhỏ yêu cầu thành nhiều bước thay vì yêu cầu kết quả cuối cùng ngay lập tức. Điều này giúp AI duy trì luồng tư duy logic và hạn chế việc bịa đặt thông tin (hallucination).",
+  },
+];
+
+const bai3Tips: { title: string; body: string }[] = [
+  {
+    title: "Sử dụng kỹ thuật Few-shot Prompting",
+    body: "Cung cấp cho AI 1–2 ví dụ mẫu ngay trong prompt vì AI có khả năng bắt chước cấu trúc (pattern) cực kỳ tốt.",
+  },
+  {
+    title: "Xác định rõ những điều KHÔNG nên làm",
+    body: "Đôi khi, việc nói cho AI biết cần tránh điều gì cũng không kém phần quan trọng so với việc nói cần làm gì.",
+  },
+  {
+    title: "Quy định cấu trúc đầu ra",
+    body: 'Luôn kết thúc prompt nâng cao bằng cách chỉ định định dạng bạn mong muốn. Ví dụ: "Trình bày dưới dạng bảng so sánh", "Định dạng bằng Markdown", hoặc "[Câu hỏi] → [Đáp án] → [Giải thích]".',
+  },
+  {
+    title: "Tinh chỉnh liên tục (Iterative Refinement)",
+    body: "Hiếm khi bạn có được một prompt hoàn hảo ngay từ lần đầu tiên. Hãy xem việc viết prompt là một cuộc đối thoại: chạy thử → đánh giá kết quả → tìm ra điểm thiếu sót → bổ sung vào prompt và chạy lại.",
+  },
+];
+
+function Bai3Page() {
+  return (
+    <article className="mx-auto max-w-5xl space-y-8">
+      <header className="border-l-4 border-[var(--brand)] pl-4">
+        <p className="text-sm uppercase tracking-widest text-[var(--brand)]">
+          Mục 2.5 · Khai thác AI trong học tập
+        </p>
+        <h2 className="mt-1 text-3xl font-bold text-[var(--brand-deep)]">
+          Bài 3 — Viết Prompt hiệu quả cho các tác vụ học tập
+        </h2>
+        <p className="mt-3 text-base leading-relaxed text-foreground">
+          Bài tập so sánh ba cấp độ prompt (<em>Cơ bản → Cải tiến → Nâng cao</em>) trên ba tác vụ học tập
+          điển hình, từ đó rút ra nguyên tắc và mẹo viết prompt hiệu quả.
+        </p>
+        <div className="mt-4">
+          <a
+            href={bai3Pdf.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-md border border-[var(--brand)] bg-[var(--brand-soft)] px-4 py-2 text-sm font-medium text-[var(--brand-deep)] transition hover:bg-[var(--brand)] hover:text-primary-foreground"
+          >
+            📄 Tải file gốc (BÀI 3.pdf)
+          </a>
+        </div>
+      </header>
+
+      {bai3Tasks.map((task) => (
+        <section key={task.id} className="prose-section">
+          <h3>{task.title}</h3>
+          <p className="text-sm text-muted-foreground">{task.subject}</p>
+
+          <div className="mt-4 overflow-x-auto rounded-lg border border-border">
+            <table className="w-full border-collapse text-sm">
+              <thead className="bg-[var(--brand-soft)] text-[var(--brand-deep)]">
+                <tr>
+                  <th className="border border-border px-3 py-2 text-left font-semibold w-32">Cấp độ</th>
+                  <th className="border border-border px-3 py-2 text-left font-semibold">Nội dung Prompt</th>
+                  <th className="border border-border px-3 py-2 text-left font-semibold w-72">Đặc điểm</th>
+                </tr>
+              </thead>
+              <tbody>
+                {task.rows.map((r) => (
+                  <tr key={r.level} className="align-top">
+                    <td className="border border-border px-3 py-3">
+                      <span
+                        className={`inline-block rounded-full border px-2.5 py-0.5 text-xs font-semibold ${levelStyle[r.level]}`}
+                      >
+                        {r.level}
+                      </span>
+                    </td>
+                    <td className="border border-border px-3 py-3 leading-relaxed text-foreground">
+                      {r.prompt}
+                    </td>
+                    <td className="border border-border px-3 py-3 leading-relaxed text-foreground">
+                      {r.feature}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+      ))}
+
+      <section className="rounded-lg border-l-4 border-[var(--brand)] bg-[var(--brand-soft)] p-4">
+        <p className="m-0 text-sm leading-relaxed text-foreground">
+          <strong className="text-[var(--brand-deep)]">Kết quả thử nghiệm:</strong> các prompt nâng cao cho kết
+          quả chính xác, chi tiết và khớp với yêu cầu hơn các prompt cơ bản.
+        </p>
+      </section>
+
+      <section className="prose-section">
+        <h3>Tổng kết</h3>
+
+        <div className="mt-4 grid gap-6 md:grid-cols-2">
+          <div className="rounded-xl border border-border bg-card p-5 shadow-sm">
+            <h4 className="m-0 text-lg font-semibold text-[var(--brand-deep)]">1. Các nguyên tắc</h4>
+            <ul className="mt-3 space-y-3 text-sm">
+              {bai3Principles.map((p) => (
+                <li key={p.title} className="leading-relaxed">
+                  <strong className="text-foreground">{p.title}:</strong>{" "}
+                  <span className="text-foreground">{p.body}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="rounded-xl border border-border bg-card p-5 shadow-sm">
+            <h4 className="m-0 text-lg font-semibold text-[var(--brand-deep)]">
+              2. Các mẹo thực chiến (Tips &amp; Tricks)
+            </h4>
+            <ul className="mt-3 space-y-3 text-sm">
+              {bai3Tips.map((t) => (
+                <li key={t.title} className="leading-relaxed">
+                  <strong className="text-foreground">{t.title}:</strong>{" "}
+                  <span className="text-foreground">{t.body}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
       </section>
     </article>
   );
