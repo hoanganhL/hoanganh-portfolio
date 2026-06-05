@@ -1325,3 +1325,270 @@ function Bai4Page() {
     </article>
   );
 }
+
+import bai5Pdf from "@/assets/bai5.pdf.asset.json";
+
+type Bai5Prompt = {
+  label: string;
+  quote: string;
+  result: string;
+};
+
+type Bai5Tool = {
+  id: string;
+  name: string;
+  role: string;
+  accent: string; // tailwind color class for badge
+  prompts: Bai5Prompt[];
+};
+
+const bai5Tools: Bai5Tool[] = [
+  {
+    id: "claude",
+    name: "Claude",
+    role: "Tạo & biên tập văn bản",
+    accent: "bg-amber-100 text-amber-800 border-amber-300",
+    prompts: [
+      {
+        label: "Prompt 1 — Lấy thông tin nền tảng",
+        quote:
+          "Đóng vai là một người biên nội dung, tạo bài viết ngắn: một bài viết về tổng quan ứng dụng của AI trong giáo dục, một bài viết về mặt lợi... một bài viết về mặt hại...",
+        result:
+          "Claude cung cấp 3 bài viết chi tiết (ví dụ: nhắc đến thị trường 20 tỷ USD, nền tảng Khan Academy, Duolingo...).",
+      },
+      {
+        label: "Prompt 2 — Chuyển đổi sang định dạng Infographic",
+        quote:
+          "Đóng vai là một người soạn nội dung, tạo nội dung để viết một infographic ngắn gọn về ứng dụng của AI trong giáo dục, gồm 3 phần: tổng quan, mặt lợi, mặt hại.",
+        result:
+          "Claude đã trích xuất các vấn đề chính: dữ liệu ($20B+, 60%, 3x) cho phần Tổng quan, và các gạch đầu cho phần Mặt lợi/Mặt hại.",
+      },
+    ],
+  },
+  {
+    id: "gemini",
+    name: "Google Gemini (Nano Banana 2 / Pro)",
+    role: "Tạo hình ảnh minh họa",
+    accent: "bg-sky-100 text-sky-800 border-sky-300",
+    prompts: [
+      {
+        label: "Prompt 1 — Hình ảnh Mặt lợi",
+        quote: "tạo cho tôi ảnh minh họa về mặt lợi của ứng dụng AI vào giáo dục",
+        result:
+          "Gemini (Nano Banana 2) tạo ảnh đồ họa phẳng, chia 6 ô rõ ràng (Cá nhân hóa học tập, Trợ lý học tập 24/7, Hỗ trợ giáo viên...). Dùng tùy chọn \"Redo with Pro\" để chữ tiếng Việt và nét vẽ sắc nét hơn.",
+      },
+      {
+        label: "Prompt 2 — Hình ảnh Mặt hại",
+        quote:
+          "tạo cho tôi ảnh minh họa với phong cách tương tự cho nội dung về mặt hại của ứng dụng AI vào giáo dục",
+        result:
+          "AI hiểu ngữ cảnh \"phong cách tương tự\" và tạo infographic 6 ô (Thay thế giáo viên, Sự phụ thuộc quá mức, Sai lệch và thiên kiến...) với tông màu cảnh báo phù hợp.",
+      },
+    ],
+  },
+  {
+    id: "gamma",
+    name: "Gamma",
+    role: "Hỗ trợ thiết kế & dàn trang",
+    accent: "bg-violet-100 text-violet-800 border-violet-300",
+    prompts: [
+      {
+        label: "Cách thức thực hiện",
+        quote: "Tại giao diện Gamma, chọn định dạng \"Graphic\" → \"Infographic\".",
+        result:
+          "Layout: chọn \"Segmented Bar\" để chia các luồng thông tin rõ ràng. Nội dung: dán toàn bộ phần text chứa các con số ($20B+, 60%, 3x) do Claude tạo ra vào ô \"Theme & prompt\" để Gamma dàn trang.",
+      },
+    ],
+  },
+];
+
+const bai5Comparison: { tool: string; strength: string }[] = [
+  { tool: "Claude", strength: "Vượt trội ở khả năng chắt lọc từ khóa và số liệu." },
+  {
+    tool: "Gemini",
+    strength:
+      "Tạo ảnh kèm văn bản tiếng Việt (text-in-image) và sắp xếp bố cục sơ đồ đáng kinh ngạc, vượt xa kỳ vọng về một công cụ chỉ tạo \"ảnh minh họa thông thường\".",
+  },
+  {
+    tool: "Gamma",
+    strength:
+      "Tiện lợi để tạo nhanh cấu trúc (wireframe) cho infographic, nhưng phần tạo hình ảnh minh họa đi kèm không sát ngữ cảnh bằng Gemini.",
+  },
+];
+
+const bai5Personal: { title: string; body: string }[] = [
+  {
+    title: "Kiểm duyệt lỗi văn bản trên ảnh (Typo check)",
+    body: "Kiểm tra kỹ các đoạn text trên 2 bức ảnh của Gemini để đảm bảo tính chính xác về chính tả trước khi đưa vào sản phẩm cuối.",
+  },
+  {
+    title: "Định hướng luồng thông tin",
+    body: "Lựa chọn các kiểu bố cục, phong cách vẽ và chỉnh sửa trực tiếp để giúp người xem dễ dàng tiếp nhận thông tin theo logic phản biện.",
+  },
+  {
+    title: "Lược bỏ thông tin thừa",
+    body: "Chủ động cắt bỏ các đoạn văn quá dài của Claude, chỉnh sửa văn phong sao cho tự nhiên nhất.",
+  },
+];
+
+const bai5Strengths = [
+  "Claude có khả năng gói gọn một bài luận dài thành các bullet point hoàn hảo.",
+  "Gemini có thể thiết kế hẳn một cụm layout chia 6 ô với đầy đủ biểu tượng và chữ tiếng Việt tương đối chuẩn xác.",
+];
+
+const bai5Limits = [
+  "Gamma khi dàn trang tự động đôi khi gặp lỗi font tiếng Việt hoặc sắp xếp khối màu thiếu sự liền mạch.",
+  "Hình ảnh của Gemini dù đẹp nhưng không thể chỉnh sửa từng chữ, từng icon bên trong bức ảnh nếu có sai sót (phải prompt lại từ đầu hoặc dùng phần mềm ngoài).",
+];
+
+const bai5Ethics: { title: string; body: string }[] = [
+  {
+    title: "Độ tin cậy của dữ liệu",
+    body: "Các số liệu Claude đưa ra (như \"Thị trường $20B+\", \"60% trường học tích hợp AI\") cần được tra cứu và xác minh lại từ các báo cáo tổ chức giáo dục uy tín (như UNESCO hay EdTechX) trước khi xuất bản rộng rãi để tránh phát tán \"ảo giác\" (hallucination) của AI.",
+  },
+  {
+    title: "Bản quyền hình ảnh",
+    body: "Layout và cách phân chia 6 ô đồ họa do Gemini tạo ra có thể đã học hỏi từ các nghệ sĩ/nhà thiết kế trên Internet. Dù AI sinh ra ảnh mới, việc sử dụng các sản phẩm này cho mục đích thương mại vẫn là một lằn ranh cần cẩn trọng.",
+  },
+];
+
+function Bai5Page() {
+  return (
+    <article className="mx-auto max-w-5xl space-y-8">
+      <header className="border-l-4 border-[var(--brand)] pl-4">
+        <p className="text-sm uppercase tracking-widest text-[var(--brand)]">
+          Báo cáo dự án · Sáng tạo nội dung với AI tạo sinh
+        </p>
+        <h2 className="mt-1 text-3xl font-bold text-[var(--brand-deep)]">
+          Infographic "Ứng dụng của AI trong Giáo dục: Cơ hội và Thách thức"
+        </h2>
+        <div className="mt-3 grid gap-1 text-sm text-foreground sm:grid-cols-2">
+          <p><strong>Định dạng sản phẩm:</strong> Infographic (Đồ họa thông tin)</p>
+          <p><strong>Công cụ AI:</strong> Claude · Gemini (Nano Banana 2/Pro) · Gamma</p>
+        </div>
+        <div className="mt-4">
+          <a
+            href={bai5Pdf.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-md border border-[var(--brand)] bg-[var(--brand-soft)] px-4 py-2 text-sm font-medium text-[var(--brand-deep)] transition hover:bg-[var(--brand)] hover:text-primary-foreground"
+          >
+            📄 Tải file gốc (BÀI 5.pdf)
+          </a>
+        </div>
+      </header>
+
+      <section className="prose-section">
+        <h3>I. Tổng quan dự án và lựa chọn công cụ</h3>
+        <p className="mt-2 text-foreground">
+          Mục tiêu của dự án là thiết kế một Infographic trực quan, súc tích nhằm phân tích bức tranh
+          toàn cảnh về Trí tuệ nhân tạo (AI) trong giáo dục — bao gồm tổng quan, mặt lợi và mặt hại.
+          Để tối ưu hóa quy trình, kết hợp 3 công cụ:
+        </p>
+        <ul className="mt-3 space-y-2 text-foreground">
+          <li><strong>Claude:</strong> Đóng vai trò biên tập viên, tóm tắt thông tin từ bài viết chi tiết sang dạng số liệu, gạch đầu dòng phù hợp cho Infographic.</li>
+          <li><strong>Google Gemini (Nano Banana 2/Pro):</strong> Phụ trách tạo các khối hình ảnh minh họa dạng sơ đồ trực quan, có chứa thông tin tiếng Việt cho hai phần "Lợi ích" và "Rủi ro".</li>
+          <li><strong>Gamma:</strong> Tự động hóa dàn trang (layout) Infographic dựa trên nội dung chữ thô.</li>
+        </ul>
+      </section>
+
+      <section className="prose-section">
+        <h3>II. Ghi chép chi tiết quá trình sử dụng AI</h3>
+        <div className="mt-4 space-y-6">
+          {bai5Tools.map((tool) => (
+            <div key={tool.id} className="rounded-xl border border-border bg-card p-5 shadow-sm">
+              <div className="flex flex-wrap items-center gap-3">
+                <h4 className="m-0 text-lg font-semibold text-[var(--brand-deep)]">{tool.name}</h4>
+                <span className={`inline-block rounded-full border px-2.5 py-0.5 text-xs font-medium ${tool.accent}`}>
+                  {tool.role}
+                </span>
+              </div>
+              <div className="mt-4 space-y-4">
+                {tool.prompts.map((p, i) => (
+                  <div key={i} className="rounded-lg bg-muted/40 p-4">
+                    <p className="m-0 text-sm font-semibold text-[var(--brand-deep)]">{p.label}</p>
+                    <blockquote className="mt-2 border-l-2 border-[var(--brand)] pl-3 text-sm italic text-foreground/80">
+                      "{p.quote}"
+                    </blockquote>
+                    <p className="mt-2 text-sm leading-relaxed text-foreground">
+                      <strong>Kết quả:</strong> {p.result}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-6 rounded-xl border border-border bg-card p-5 shadow-sm">
+          <h4 className="m-0 text-lg font-semibold text-[var(--brand-deep)]">Tích hợp & So sánh các công cụ</h4>
+          <p className="mt-3 text-sm leading-relaxed text-foreground">
+            <strong>Tích hợp:</strong> Sử dụng khung sườn và phần chữ tổng quan do <strong>Gamma</strong> tự động dàn
+            trang. Sau đó, thay vì dùng chữ dài dòng cho phần lợi/hại, chèn trực tiếp 2 hình ảnh Infographic chi tiết
+            mà <strong>Gemini</strong> đã tạo ra vào bản thiết kế cuối cùng — tạo nên một tổng thể vừa có số liệu tóm
+            tắt (từ Claude/Gamma) vừa có minh họa trực quan (từ Gemini).
+          </p>
+          <div className="mt-4 grid gap-3 md:grid-cols-3">
+            {bai5Comparison.map((c) => (
+              <div key={c.tool} className="rounded-lg border border-border bg-muted/30 p-4">
+                <p className="m-0 text-sm font-semibold text-[var(--brand-deep)]">{c.tool}</p>
+                <p className="mt-1.5 text-sm leading-relaxed text-foreground">{c.strength}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="prose-section">
+        <h3>III. Hoàn thiện dự án với đóng góp cá nhân</h3>
+        <p className="mt-2 text-foreground">Dù AI hỗ trợ đắc lực, vẫn cần các bước can thiệp thủ công:</p>
+        <div className="mt-4 grid gap-4 md:grid-cols-3">
+          {bai5Personal.map((p) => (
+            <div key={p.title} className="rounded-xl border border-border bg-card p-4 shadow-sm">
+              <p className="m-0 text-sm font-semibold text-[var(--brand-deep)]">{p.title}</p>
+              <p className="mt-2 text-sm leading-relaxed text-foreground">{p.body}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="prose-section">
+        <h3>IV. Phân tích vai trò của AI trong quá trình sáng tạo</h3>
+
+        <h4 className="mt-4 text-base font-semibold text-[var(--brand-deep)]">1. Những phần AI làm tốt và còn hạn chế</h4>
+        <div className="mt-3 grid gap-4 md:grid-cols-2">
+          <div className="rounded-xl border border-emerald-200 bg-emerald-50/60 p-4">
+            <p className="m-0 text-sm font-semibold text-emerald-700">Làm tốt</p>
+            <ul className="mt-2 list-disc space-y-1.5 pl-5 text-sm leading-relaxed text-foreground">
+              {bai5Strengths.map((s, i) => <li key={i}>{s}</li>)}
+            </ul>
+          </div>
+          <div className="rounded-xl border border-rose-200 bg-rose-50/60 p-4">
+            <p className="m-0 text-sm font-semibold text-rose-700">Hạn chế</p>
+            <ul className="mt-2 list-disc space-y-1.5 pl-5 text-sm leading-relaxed text-foreground">
+              {bai5Limits.map((s, i) => <li key={i}>{s}</li>)}
+            </ul>
+          </div>
+        </div>
+
+        <h4 className="mt-6 text-base font-semibold text-[var(--brand-deep)]">2. Cách AI thay đổi quy trình sáng tạo</h4>
+        <p className="mt-2 text-sm leading-relaxed text-foreground">
+          Với phương pháp cũ, làm Infographic đòi hỏi phải thành thạo Illustrator/Photoshop, lên mạng tải từng icon,
+          tự vẽ từng khối hộp rồi mới gõ chữ vào. Với quy trình mới bằng AI, người dùng đóng vai trò chính —
+          Claude viết nội dung, Gemini vẽ các khối đồ họa phức tạp, và Gamma làm khung chứa. Thời gian rút ngắn từ
+          vài ngày xuống chỉ còn vài giờ.
+        </p>
+
+        <h4 className="mt-6 text-base font-semibold text-[var(--brand-deep)]">3. Các vấn đề đạo đức cần cân nhắc</h4>
+        <div className="mt-3 space-y-3">
+          {bai5Ethics.map((e) => (
+            <div key={e.title} className="rounded-xl border border-amber-200 bg-amber-50/50 p-4">
+              <p className="m-0 text-sm font-semibold text-amber-800">{e.title}</p>
+              <p className="mt-1.5 text-sm leading-relaxed text-foreground">{e.body}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+    </article>
+  );
+}
