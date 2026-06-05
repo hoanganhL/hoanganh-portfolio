@@ -1050,7 +1050,7 @@ const bai3Tips: { title: string; body: string }[] = [
     body: 'Luôn kết thúc prompt nâng cao bằng cách chỉ định định dạng bạn mong muốn. Ví dụ: "Trình bày dưới dạng bảng so sánh", "Định dạng bằng Markdown", hoặc "[Câu hỏi] → [Đáp án] → [Giải thích]".',
   },
   {
-    title: "Tinh chỉnh liên tục (Iterative Refinement)",
+    title: "Tinh chỉnh liên tục",
     body: "Hiếm khi bạn có được một prompt hoàn hảo ngay từ lần đầu tiên. Hãy xem việc viết prompt là một cuộc đối thoại: chạy thử → đánh giá kết quả → tìm ra điểm thiếu sót → bổ sung vào prompt và chạy lại.",
   },
 ];
@@ -1144,7 +1144,7 @@ function Bai3Page() {
 
           <div className="rounded-xl border border-border bg-card p-5 shadow-sm">
             <h4 className="m-0 text-lg font-semibold text-[var(--brand-deep)]">
-              2. Các mẹo thực chiến (Tips &amp; Tricks)
+              2. Các mẹo sử dụng AI
             </h4>
             <ul className="mt-3 space-y-3 text-sm">
               {bai3Tips.map((t) => (
