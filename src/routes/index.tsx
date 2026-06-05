@@ -301,7 +301,7 @@ function Portfolio() {
 
           {exercises.map((ex) => (
             <TabsContent key={ex.id} value={ex.id} className="mt-8">
-              {ex.id === "bai1" ? <Bai1Page /> : ex.id === "bai2" ? <Bai2Page /> : ex.id === "bai3" ? <Bai3Page /> : ex.id === "bai4" ? <Bai4Page /> : ex.id === "bai5" ? <Bai5Page /> : <ExercisePage data={ex} />}
+              {ex.id === "bai1" ? <Bai1Page /> : ex.id === "bai2" ? <Bai2Page /> : ex.id === "bai3" ? <Bai3Page /> : ex.id === "bai4" ? <Bai4Page /> : ex.id === "bai5" ? <Bai5Page /> : ex.id === "bai6" ? <Bai6Page /> : <ExercisePage data={ex} />}
             </TabsContent>
           ))}
 
@@ -1560,6 +1560,270 @@ function Bai5Page() {
             </div>
           ))}
         </div>
+      </section>
+    </article>
+  );
+}
+
+import bai6Infographic from "@/assets/bai6/infographic.png.asset.json";
+
+const bai6Prompts: { id: string; quote: string }[] = [
+  {
+    id: "1",
+    quote:
+      "Hãy liệt kê các nguyên tắc đạo đức cốt lõi trong phát triển phần mềm theo góc nhìn học thuật, có trích dẫn nguồn.",
+  },
+  {
+    id: "2",
+    quote:
+      "Phân tích sự khác biệt giữa đạo đức kỹ sư phần mềm theo IEEE và ACM. Trình bày dưới dạng so sánh.",
+  },
+  {
+    id: "3",
+    quote:
+      "Tóm tắt các nghiên cứu thực nghiệm về tác động của vi phạm đạo đức trong phần mềm với dẫn chứng thực tế.",
+  },
+  {
+    id: "4",
+    quote:
+      "Đánh giá điểm mạnh và hạn chế của các khung đạo đức hiện tại, đề xuất hướng cải thiện.",
+  },
+];
+
+const bai6EditSteps: { title: string; body: string }[] = [
+  {
+    title: "Kiểm tra chéo",
+    body: "Đối chiếu các thông tin và trích dẫn mà AI đề cập với nguồn gốc thực tế thông qua Google Scholar và IEEE Xplore. Phát hiện 2/8 tài liệu AI đề cập có năm xuất bản không chính xác.",
+  },
+  {
+    title: "Loại bỏ nội dung không phù hợp",
+    body: "Một số đoạn AI tổng hợp mang tính liệt kê chung chung, thiếu chiều sâu phân tích — đã được viết lại hoàn toàn.",
+  },
+  {
+    title: "Bổ sung góc nhìn cá nhân",
+    body: "Thêm các ví dụ từ thực tiễn Việt Nam và bối cảnh UET-VNU mà AI không có dữ liệu cập nhật.",
+  },
+  {
+    title: "Sắp xếp lại cấu trúc",
+    body: "Tái tổ chức luận điểm theo logic phân tích từ lý thuyết đến thực tiễn, thay vì theo cách AI liệt kê tuần tự.",
+  },
+];
+
+const bai6Principles: { title: string; body: string }[] = [
+  {
+    title: "Nguyên tắc 50/50",
+    body: "AI không bao giờ đóng góp quá 50% nội dung bài làm; 50% còn lại phải là sự kiểm chứng và tư duy cá nhân.",
+  },
+  {
+    title: "Minh bạch tuyệt đối",
+    body: "Luôn có ghi chú về việc sử dụng AI ở cuối mỗi bài nộp.",
+  },
+  {
+    title: "Kiểm chứng chéo (Fact-check)",
+    body: "Luôn kiểm tra lại các thông tin, thông số, mã nguồn mà AI cung cấp bằng tài liệu tin cậy.",
+  },
+  {
+    title: "AI là phụ tá, không phải tác giả",
+    body: "Chỉ dùng AI để gợi mở ý tưởng khi bị \"bí\", không dùng để thay thế quá trình học tập.",
+  },
+  {
+    title: "Bảo mật dữ liệu",
+    body: "Không đưa các thông tin nội bộ của trường hoặc các dự án nghiên cứu chưa công bố lên AI.",
+  },
+];
+
+function Bai6Page() {
+  return (
+    <article className="mx-auto max-w-5xl space-y-8">
+      <header className="border-l-4 border-[var(--brand)] pl-4">
+        <p className="text-sm uppercase tracking-widest text-[var(--brand)]">
+          Báo cáo · Sử dụng AI có trách nhiệm
+        </p>
+        <h2 className="mt-1 text-3xl font-bold text-[var(--brand-deep)]">
+          Sử dụng AI có trách nhiệm trong học tập và nghiên cứu
+        </h2>
+      </header>
+
+      <section className="prose-section">
+        <h3>I. Chính sách về sử dụng AI tại Đại học Quốc gia Hà Nội (VNU) và UET</h3>
+        <p className="mt-2 text-foreground">
+          Hiện nay, Đại học Quốc gia Hà Nội nói chung và trường Đại học Công nghệ nói riêng đang có
+          những bước đi chủ động trong việc thích nghi với AI:
+        </p>
+        <ul className="mt-3 space-y-2 text-foreground">
+          <li>
+            <strong>Chủ trương chung:</strong> VNU khuyến khích ứng dụng công nghệ số và AI để nâng
+            cao chất lượng giảng dạy nhưng nhấn mạnh vào sự minh bạch.
+          </li>
+          <li>
+            <strong>Quy định tại UET:</strong> Là một trường kỹ thuật hàng đầu, UET coi AI là công
+            cụ hỗ trợ chứ không thay thế hoàn toàn con người. Việc nộp bài làm hoàn toàn bằng AI mà
+            không có sự chỉnh sửa hay trích dẫn bị coi là vi phạm quy chế thi cử và kiểm tra
+            (tương đương với hành vi đạo văn).
+          </li>
+          <li>
+            <strong>Yêu cầu minh bạch:</strong> Sinh viên được phép dùng AI để tìm hiểu kiến thức,
+            gợi ý ý tưởng hoặc tối ưu hóa mã nguồn (coding), nhưng phải có khả năng giải trình về
+            nội dung mình nộp.
+          </li>
+        </ul>
+      </section>
+
+      <section className="prose-section">
+        <h3>II. Thực hành nhiệm vụ học tập với sự hỗ trợ của AI</h3>
+        <p className="mt-2 text-foreground">
+          <strong>Nhiệm vụ:</strong> Chuẩn bị nội dung thuyết trình cho chủ đề{" "}
+          <em>"Đạo đức trong phát triển phần mềm"</em>.
+        </p>
+
+        <h4 className="mt-5 text-base font-semibold text-[var(--brand-deep)]">
+          1. Nhật ký tương tác với AI
+        </h4>
+        <div className="mt-3 overflow-hidden rounded-xl border border-border">
+          <table className="w-full border-collapse text-sm">
+            <tbody>
+              {bai6Prompts.map((p, i) => (
+                <tr
+                  key={p.id}
+                  className={i % 2 === 0 ? "bg-[var(--brand-soft)]/60" : "bg-card"}
+                >
+                  <td className="w-12 border-b border-border px-3 py-3 text-center font-semibold text-[var(--brand-deep)]">
+                    {p.id}
+                  </td>
+                  <td className="border-b border-border px-4 py-3 leading-relaxed text-foreground">
+                    {p.quote}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <h4 className="mt-6 text-base font-semibold text-[var(--brand-deep)]">
+          2. Đánh giá, chỉnh sửa và tích hợp
+        </h4>
+        <p className="mt-2 text-foreground">
+          AI (Claude 3.5 Sonnet, Anthropic) đã cung cấp các phản hồi chi tiết và có cấu trúc tốt.
+          Tuy nhiên, sau khi nhận được đầu ra, đã thực hiện các bước đánh giá và chỉnh sửa như sau:
+        </p>
+        <div className="mt-3 grid gap-3 md:grid-cols-2">
+          {bai6EditSteps.map((s) => (
+            <div key={s.title} className="rounded-xl border border-border bg-card p-4 shadow-sm">
+              <p className="m-0 text-sm font-semibold text-[var(--brand-deep)]">{s.title}</p>
+              <p className="mt-1.5 text-sm leading-relaxed text-foreground">{s.body}</p>
+            </div>
+          ))}
+        </div>
+
+        <h4 className="mt-6 text-base font-semibold text-[var(--brand-deep)]">
+          3. Trích dẫn minh bạch
+        </h4>
+        <p className="mt-2 text-foreground">
+          Trong phần tổng hợp tài liệu của bài báo cáo, sử dụng cách ghi chú như sau:
+        </p>
+        <blockquote className="mt-3 rounded-lg border-l-4 border-[var(--brand)] bg-muted/40 p-4 text-sm italic leading-relaxed text-foreground">
+          [AI-assisted] Phần tổng hợp này được thực hiện với sự hỗ trợ của Claude (Anthropic,
+          2024), sử dụng prompt: "Phân tích sự khác biệt giữa đạo đức kỹ sư phần mềm theo IEEE và
+          ACM". Đầu ra của AI đã được tác giả kiểm tra, chỉnh sửa và bổ sung dựa trên nguồn tài
+          liệu gốc từ IEEE Xplore và ACM Digital Library.
+        </blockquote>
+      </section>
+
+      <section className="prose-section">
+        <h3>III. Phân tích các vấn đề đạo đức trong học thuật</h3>
+
+        <h4 className="mt-4 text-base font-semibold text-[var(--brand-deep)]">
+          1. Ranh giới giữa hỗ trợ và gian lận
+        </h4>
+        <div className="mt-3 grid gap-4 md:grid-cols-2">
+          <div className="rounded-xl border border-emerald-200 bg-emerald-50/60 p-4">
+            <p className="m-0 text-sm font-semibold text-emerald-700">Hỗ trợ</p>
+            <p className="mt-1.5 text-sm leading-relaxed text-foreground">
+              Dùng AI để giải thích khái niệm khó, tìm lỗi sai trong code (debug), hoặc gợi ý cấu
+              trúc bài viết.
+            </p>
+          </div>
+          <div className="rounded-xl border border-rose-200 bg-rose-50/60 p-4">
+            <p className="m-0 text-sm font-semibold text-rose-700">Gian lận</p>
+            <p className="mt-1.5 text-sm leading-relaxed text-foreground">
+              Copy-paste toàn bộ phản hồi của AI và coi đó là bài làm của mình; dùng AI để giải bài
+              tập về nhà mà không hiểu bản chất.
+            </p>
+          </div>
+        </div>
+
+        <h4 className="mt-6 text-base font-semibold text-[var(--brand-deep)]">
+          2. Quyền sở hữu trí tuệ và trích dẫn
+        </h4>
+        <p className="mt-2 text-foreground">
+          Khi sử dụng AI trong học thuật, câu hỏi về quyền tác giả trở nên phức tạp. AI tổng hợp
+          nội dung từ dữ liệu huấn luyện khổng lồ — vậy ai là tác giả của đầu ra? Theo khung pháp
+          lý hiện tại tại Việt Nam (Luật Sở hữu Trí tuệ 2022), AI không được công nhận là tác giả.
+          Người sử dụng AI và chỉnh sửa đầu ra mới là người chịu trách nhiệm về nội dung.
+        </p>
+        <p className="mt-2 text-foreground">
+          Tuy nhiên, nếu nội dung AI tạo ra vô tình trùng với tác phẩm có bản quyền trong dữ liệu
+          huấn luyện, người dùng có thể vô tình vi phạm bản quyền mà không hay biết. Điều này đòi
+          hỏi người dùng phải luôn kiểm tra và không sao chép toàn văn đầu ra AI. Chuẩn trích dẫn
+          AI được khuyến nghị (theo APA 7th edition):
+        </p>
+        <ul className="mt-3 space-y-1.5 text-sm text-foreground">
+          <li>
+            OpenAI. (2024). <em>ChatGPT (GPT-4o)</em> [Mô hình ngôn ngữ lớn].{" "}
+            <span className="text-[var(--brand)]">https://chat.openai.com</span>
+          </li>
+          <li>
+            Anthropic. (2024). <em>Claude (claude-3-5-sonnet)</em> [Mô hình ngôn ngữ lớn].{" "}
+            <span className="text-[var(--brand)]">https://claude.ai</span>
+          </li>
+        </ul>
+
+        <h4 className="mt-6 text-base font-semibold text-[var(--brand-deep)]">
+          3. Tác động đến quá trình học tập và phát triển kỹ năng
+        </h4>
+        <p className="mt-2 text-foreground">
+          Đây là mối lo ngại sâu xa nhất về mặt giáo dục. Nghiên cứu của Bastani et al. (2024) tại
+          MIT cho thấy sinh viên sử dụng AI quá mức trong bài tập thực hành có kết quả kém hơn
+          17–24% trong bài kiểm tra không có AI so với nhóm tự làm. Điều này chỉ ra rằng AI có thể
+          tạo ra <strong>"hiệu ứng nạng"</strong> — thay thế việc phát triển tư duy thay vì hỗ trợ
+          nó. Tại UET-VNU, bối cảnh này đặc biệt quan trọng vì sinh viên ngành công nghệ thông tin
+          cần phát triển tư duy lập trình, khả năng giải quyết vấn đề và sáng tạo kỹ thuật — những
+          kỹ năng đòi hỏi quá trình rèn luyện thực sự, không thể "vay mượn" từ AI.
+        </p>
+      </section>
+
+      <section className="prose-section">
+        <h3>IV. Bộ nguyên tắc cá nhân (5 nguyên tắc)</h3>
+        <ol className="mt-3 space-y-3">
+          {bai6Principles.map((p, i) => (
+            <li
+              key={p.title}
+              className="flex gap-4 rounded-xl border border-border bg-card p-4 shadow-sm"
+            >
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[var(--brand)] text-base font-bold text-primary-foreground">
+                {i + 1}
+              </span>
+              <div>
+                <p className="m-0 text-sm font-semibold text-[var(--brand-deep)]">{p.title}</p>
+                <p className="mt-1 text-sm leading-relaxed text-foreground">{p.body}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      <section className="prose-section">
+        <h3>V. Infographic "Sử dụng AI có trách nhiệm"</h3>
+        <figure className="mt-4 overflow-hidden rounded-xl border border-border bg-card p-3 shadow-sm">
+          <img
+            src={bai6Infographic.url}
+            alt="Infographic Responsible AI Use — Suggestions, Avoid, Process"
+            className="mx-auto w-full max-w-3xl"
+          />
+          <figcaption className="mt-2 text-center text-xs text-muted-foreground">
+            Infographic tổng kết: Suggestions · Avoid · Process trong việc sử dụng AI có trách nhiệm.
+          </figcaption>
+        </figure>
       </section>
     </article>
   );
