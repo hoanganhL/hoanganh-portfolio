@@ -1242,18 +1242,11 @@ function Bai4Page() {
           Trải nghiệm và đánh giá sử dụng công cụ cộng tác trực tuyến
         </h2>
         <div className="mt-3 grid gap-1 text-sm text-foreground sm:grid-cols-2">
-          <p><strong className="text-foreground">Vai trò:</strong> Trưởng nhóm và Kiểm duyệt tổng hợp nội dung</p>
-          <p><strong className="text-foreground">Chủ đề:</strong> Tư tưởng Hồ Chí Minh về Văn hóa</p>
+          <p>{"\n"}</p>
+          <p>{"\n"}</p>
         </div>
         <div className="mt-4">
-          <a
-            href={bai4Pdf.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-md border border-[var(--brand)] bg-[var(--brand-soft)] px-4 py-2 text-sm font-medium text-[var(--brand-deep)] transition hover:bg-[var(--brand)] hover:text-primary-foreground"
-          >
-            📄 Tải file gốc (BÀI 4.pdf)
-          </a>
+          {"\n"}
         </div>
       </header>
 
