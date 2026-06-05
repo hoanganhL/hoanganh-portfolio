@@ -1066,19 +1066,8 @@ function Bai3Page() {
           Bài 3 — Viết Prompt hiệu quả cho các tác vụ học tập
         </h2>
         <p className="mt-3 text-base leading-relaxed text-foreground">
-          Bài tập so sánh ba cấp độ prompt (<em>Cơ bản → Cải tiến → Nâng cao</em>) trên ba tác vụ học tập
-          điển hình, từ đó rút ra nguyên tắc và mẹo viết prompt hiệu quả.
+          {"\n"}
         </p>
-        <div className="mt-4">
-          <a
-            href={bai3Pdf.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-md border border-[var(--brand)] bg-[var(--brand-soft)] px-4 py-2 text-sm font-medium text-[var(--brand-deep)] transition hover:bg-[var(--brand)] hover:text-primary-foreground"
-          >
-            📄 Tải file gốc (BÀI 3.pdf)
-          </a>
-        </div>
       </header>
 
       {bai3Tasks.map((task) => (
@@ -1463,18 +1452,8 @@ function Bai5Page() {
           Infographic "Ứng dụng của AI trong Giáo dục: Cơ hội và Thách thức"
         </h2>
         <div className="mt-3 grid gap-1 text-sm text-foreground sm:grid-cols-2">
-          <p><strong>Định dạng sản phẩm:</strong> Infographic (Đồ họa thông tin)</p>
-          <p><strong>Công cụ AI:</strong> Claude · Gemini (Nano Banana 2/Pro) · Gamma</p>
-        </div>
-        <div className="mt-4">
-          <a
-            href={bai5Pdf.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-md border border-[var(--brand)] bg-[var(--brand-soft)] px-4 py-2 text-sm font-medium text-[var(--brand-deep)] transition hover:bg-[var(--brand)] hover:text-primary-foreground"
-          >
-            📄 Tải file gốc (BÀI 5.pdf)
-          </a>
+          <p>{"\n"}</p>
+          <p>{"\n"}</p>
         </div>
       </header>
 
