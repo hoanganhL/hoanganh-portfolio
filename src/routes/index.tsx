@@ -53,7 +53,7 @@ const exercises: ExerciseContent[] = [
     id: "bai1",
     shortLabel: "Bài 1",
     title: "Bài 1 — Thao tác cơ bản với tệp tin và thư mục",
-    subtitle: "Mục 1.4 · Quản lý tệp và thư mục",
+    subtitle: "MỤC 1.4 - BÀI 1: MÁY TÍNH VÀ CÁC THIẾT BỊ NGOẠI VI ",
     objective:
       "Thiết kế một cấu trúc thư mục cá nhân tối ưu phục vụ học tập tại UET, áp dụng quy tắc đặt tên tệp nhất quán, có hệ thống sao lưu và đồng bộ trên nhiều thiết bị.",
     process: [
@@ -113,7 +113,7 @@ const exercises: ExerciseContent[] = [
     id: "bai3",
     shortLabel: "Bài 3",
     title: "Bài 3 — Viết Prompt hiệu quả cho các tác vụ học tập",
-    subtitle: "Mục 3.4 · Tổng quan về trí tuệ nhân tạo",
+    subtitle: "MỤC 3.4 · KHAI THÁC AI TRONG HỌC TẬP",
     objective:
       "So sánh kết quả đầu ra giữa prompt ban đầu và prompt cải tiến áp dụng các nguyên tắc Role · Context · Task · Format · Constraint, từ đó rút ra quy trình viết prompt cho học tập.",
     process: [
@@ -532,7 +532,7 @@ function Bai1Page() {
     <article className="mx-auto max-w-3xl space-y-8">
       <header className="border-l-4 border-[var(--brand)] pl-4">
         <p className="text-sm uppercase tracking-widest text-[var(--brand)]">
-          Mục 1.4 · Quản lý tệp và thư mục
+          MỤC 1.4 - BÀI 1: MÁY TÍNH VÀ CÁC THIẾT BỊ NGOẠI VI Ơ
         </p>
         <h2 className="mt-1 text-3xl font-bold text-[var(--brand-deep)]">
           Bài 1 — Thao tác cơ bản với tệp tin và thư mục
@@ -1060,7 +1060,7 @@ function Bai3Page() {
     <article className="mx-auto max-w-5xl space-y-8">
       <header className="border-l-4 border-[var(--brand)] pl-4">
         <p className="text-sm uppercase tracking-widest text-[var(--brand)]">
-          Mục 2.5 · Khai thác AI trong học tập
+          MỤC 3.4 · KHAI THÁC AI TRONG HỌC TẬP
         </p>
         <h2 className="mt-1 text-3xl font-bold text-[var(--brand-deep)]">
           Bài 3 — Viết Prompt hiệu quả cho các tác vụ học tập
