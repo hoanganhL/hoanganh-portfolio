@@ -1626,7 +1626,7 @@ function Bai6Page() {
     <article className="mx-auto max-w-5xl space-y-8">
       <header className="border-l-4 border-[var(--brand)] pl-4">
         <p className="text-sm uppercase tracking-widest text-[var(--brand)]">
-          Mục 3.3 · Sử dụng AI có trách nhiệm
+          MỤC 6.4 - BÀI 6: AN TOÀN VÀ LIÊM CHÍNH HỌC THUẬT TRONG MÔI TRƯỜNG SỐ
         </p>
         <h2 className="mt-1 text-3xl font-bold text-[var(--brand-deep)]">
           Bài 6 — Sử dụng AI có trách nhiệm trong học tập và nghiên cứu
