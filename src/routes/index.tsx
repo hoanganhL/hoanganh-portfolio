@@ -1236,18 +1236,11 @@ function Bai4Page() {
     <article className="mx-auto max-w-5xl space-y-8">
       <header className="border-l-4 border-[var(--brand)] pl-4">
         <p className="text-sm uppercase tracking-widest text-[var(--brand)]">
-          Báo cáo cá nhân · Công cụ cộng tác trực tuyến
+          Mục 3.1 · Công cụ cộng tác trực tuyến
         </p>
         <h2 className="mt-1 text-3xl font-bold text-[var(--brand-deep)]">
-          Trải nghiệm và đánh giá sử dụng công cụ cộng tác trực tuyến
+          Bài 4 — Trải nghiệm và đánh giá công cụ cộng tác trực tuyến
         </h2>
-        <div className="mt-3 grid gap-1 text-sm text-foreground sm:grid-cols-2">
-          <p>{"\n"}</p>
-          <p>{"\n"}</p>
-        </div>
-        <div className="mt-4">
-          {"\n"}
-        </div>
       </header>
 
       <section className="prose-section">
@@ -1439,15 +1432,11 @@ function Bai5Page() {
     <article className="mx-auto max-w-5xl space-y-8">
       <header className="border-l-4 border-[var(--brand)] pl-4">
         <p className="text-sm uppercase tracking-widest text-[var(--brand)]">
-          Báo cáo dự án · Sáng tạo nội dung với AI tạo sinh
+          Mục 3.2 · Sáng tạo nội dung với AI tạo sinh
         </p>
         <h2 className="mt-1 text-3xl font-bold text-[var(--brand-deep)]">
-          Infographic "Ứng dụng của AI trong Giáo dục: Cơ hội và Thách thức"
+          Bài 5 — Infographic "Ứng dụng của AI trong Giáo dục: Cơ hội và Thách thức"
         </h2>
-        <div className="mt-3 grid gap-1 text-sm text-foreground sm:grid-cols-2">
-          <p>{"\n"}</p>
-          <p>{"\n"}</p>
-        </div>
       </header>
 
       <section className="prose-section">
@@ -1637,10 +1626,10 @@ function Bai6Page() {
     <article className="mx-auto max-w-5xl space-y-8">
       <header className="border-l-4 border-[var(--brand)] pl-4">
         <p className="text-sm uppercase tracking-widest text-[var(--brand)]">
-          Báo cáo · Sử dụng AI có trách nhiệm
+          Mục 3.3 · Sử dụng AI có trách nhiệm
         </p>
         <h2 className="mt-1 text-3xl font-bold text-[var(--brand-deep)]">
-          Sử dụng AI có trách nhiệm trong học tập và nghiên cứu
+          Bài 6 — Sử dụng AI có trách nhiệm trong học tập và nghiên cứu
         </h2>
       </header>
 
