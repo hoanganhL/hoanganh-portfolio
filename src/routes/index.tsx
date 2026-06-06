@@ -1236,7 +1236,7 @@ function Bai4Page() {
     <article className="mx-auto max-w-5xl space-y-8">
       <header className="border-l-4 border-[var(--brand)] pl-4">
         <p className="text-sm uppercase tracking-widest text-[var(--brand)]">
-          Mục 3.1 · Công cụ cộng tác trực tuyến
+          MỤC 4.4 - BÀI 4: GIAO TIẾP VÀ HỢP TÁC TRONG MÔI TRƯỜNG SỐ
         </p>
         <h2 className="mt-1 text-3xl font-bold text-[var(--brand-deep)]">
           Bài 4 — Trải nghiệm và đánh giá công cụ cộng tác trực tuyến
