@@ -1060,7 +1060,7 @@ function Bai3Page() {
     <article className="mx-auto max-w-5xl space-y-8">
       <header className="border-l-4 border-[var(--brand)] pl-4">
         <p className="text-sm uppercase tracking-widest text-[var(--brand)]">
-          MỤC 3.4 · KHAI THÁC AI TRONG HỌC TẬP
+          MỤC 3.4 - BÀI 3: TỔNG QUAN VỀ TRÍ TUỆ NHÂN TẠO
         </p>
         <h2 className="mt-1 text-3xl font-bold text-[var(--brand-deep)]">
           Bài 3 — Viết Prompt hiệu quả cho các tác vụ học tập
