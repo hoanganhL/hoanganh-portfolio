@@ -1432,7 +1432,7 @@ function Bai5Page() {
     <article className="mx-auto max-w-5xl space-y-8">
       <header className="border-l-4 border-[var(--brand)] pl-4">
         <p className="text-sm uppercase tracking-widest text-[var(--brand)]">
-          Mục 3.2 · Sáng tạo nội dung với AI tạo sinh
+          MỤC 5.4 - BÀI 5: SÁNG TẠO NỘI DUNG SỐ
         </p>
         <h2 className="mt-1 text-3xl font-bold text-[var(--brand-deep)]">
           Bài 5 — Infographic "Ứng dụng của AI trong Giáo dục: Cơ hội và Thách thức"
