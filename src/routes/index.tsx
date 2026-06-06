@@ -83,7 +83,7 @@ const exercises: ExerciseContent[] = [
     id: "bai2",
     shortLabel: "Bài 2",
     title: "Bài 2 — Tìm kiếm và đánh giá thông tin học thuật",
-    subtitle: "Mục 2.4 · Khai thác dữ liệu và thông tin",
+    subtitle: "MỤC 2.4 - BÀI 2: KHAI THÁC DỮ LIỆU VÀ THÔNG TIN",
     objective:
       "Thực hành tìm kiếm học thuật nâng cao với các toán tử của Google Search, Google Scholar và đánh giá độ tin cậy của nguồn tin theo bộ tiêu chí CRAAP.",
     process: [
@@ -113,7 +113,7 @@ const exercises: ExerciseContent[] = [
     id: "bai3",
     shortLabel: "Bài 3",
     title: "Bài 3 — Viết Prompt hiệu quả cho các tác vụ học tập",
-    subtitle: "MỤC 3.4 · KHAI THÁC AI TRONG HỌC TẬP",
+    subtitle: "MỤC 3.4 - BÀI 3: TỔNG QUAN VỀ TRÍ TUỆ NHÂN TẠO ",
     objective:
       "So sánh kết quả đầu ra giữa prompt ban đầu và prompt cải tiến áp dụng các nguyên tắc Role · Context · Task · Format · Constraint, từ đó rút ra quy trình viết prompt cho học tập.",
     process: [
@@ -143,7 +143,7 @@ const exercises: ExerciseContent[] = [
     id: "bai4",
     shortLabel: "Bài 4",
     title: "Bài 4 — Sử dụng công cụ hợp tác trực tuyến cho dự án nhóm",
-    subtitle: "Mục 4.4 · Giao tiếp và hợp tác trong môi trường số",
+    subtitle: "MỤC 4.4 - BÀI 4: GIAO TIẾP VÀ HỢP TÁC TRONG MÔI TRƯỜNG SỐ ",
     objective:
       "Triển khai quy trình quản lý dự án nhóm 5 người trên Trello và Discord cho bài tập lớn môn Lập trình hướng đối tượng, đảm bảo phân công minh bạch và theo dõi tiến độ theo tuần.",
     process: [
@@ -173,7 +173,7 @@ const exercises: ExerciseContent[] = [
     id: "bai5",
     shortLabel: "Bài 5",
     title: "Bài 5 — Sử dụng AI tạo sinh để hỗ trợ sáng tạo nội dung",
-    subtitle: "Mục 5.4 · Sáng tạo nội dung số",
+    subtitle: "MỤC 5.4 - BÀI 5: SÁNG TẠO NỘI DUNG SỐ ",
     objective:
       "Sản xuất một video ngắn 60 giây giới thiệu ngành Kỹ thuật máy tính UET với sự hỗ trợ của các công cụ AI tạo sinh (ChatGPT, Midjourney, ElevenLabs, CapCut AI).",
     process: [
@@ -203,7 +203,7 @@ const exercises: ExerciseContent[] = [
     id: "bai6",
     shortLabel: "Bài 6",
     title: "Bài 6 — Sử dụng AI có trách nhiệm trong học tập và nghiên cứu",
-    subtitle: "Mục 6.4 · An toàn và liêm chính học thuật",
+    subtitle: "MỤC 6.4 - BÀI 6: AN TOÀN VÀ LIÊM CHÍNH HỌC THUẬT TRONG MÔI TRƯỜNG SỐ",
     objective:
       "Xây dựng bộ nguyên tắc cá nhân gồm 7 điều về sử dụng AI có trách nhiệm, dựa trên các nghiên cứu về đạo đức AI và quy định liêm chính học thuật của ĐHQGHN.",
     process: [
