@@ -53,7 +53,7 @@ const exercises: ExerciseContent[] = [
     id: "bai1",
     shortLabel: "Bài 1",
     title: "Bài 1 — Thao tác cơ bản với tệp tin và thư mục",
-    subtitle: "MỤC 1.4 - BÀI 1: MÁY TÍNH VÀ CÁC THIẾT BỊ NGOẠI VI ",
+    subtitle: "MỤC 1.4 - BÀI 1: MÁY TÍNH VÀ CÁC THIẾT BỊ NGOẠI VI",
     objective:
       "Thiết kế một cấu trúc thư mục cá nhân tối ưu phục vụ học tập tại UET, áp dụng quy tắc đặt tên tệp nhất quán, có hệ thống sao lưu và đồng bộ trên nhiều thiết bị.",
     process: [
