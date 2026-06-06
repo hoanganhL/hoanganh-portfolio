@@ -842,7 +842,7 @@ function Bai2Page() {
     <article className="mx-auto max-w-5xl space-y-8">
       <header className="border-l-4 border-[var(--brand)] pl-4">
         <p className="text-sm uppercase tracking-widest text-[var(--brand)]">
-          Mục 2.4 · Khai thác dữ liệu và thông tin
+          MỤC 2.4 - BÀI 2: KHAI THÁC DỮ LIỆU VÀ THÔNG TIN
         </p>
         <h2 className="mt-1 text-3xl font-bold text-[var(--brand-deep)]">
           Bài 2 — Tìm kiếm và đánh giá thông tin học thuật
